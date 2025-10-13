@@ -1,0 +1,11 @@
+tcp:
+  routers:
+    postgres-tcp:
+      entryPoints: ["db"]
+      rule: 'HostSNI("*")'
+      service: postgres-svc
+  services:
+    postgres-svc:
+      loadBalancer:
+        servers:
+          - address: "postgres:5432"

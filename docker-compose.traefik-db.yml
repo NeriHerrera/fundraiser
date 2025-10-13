@@ -1,0 +1,18 @@
+services:
+  traefik:
+    image: traefik:v3.1
+    container_name: traefik
+    command:
+      - --providers.file.filename=/dynamic.yml
+      - --entrypoints.db.address=:5433
+    ports:
+      - "5433:5433"
+    volumes:
+      - ./dynamic.yml:/dynamic.yml:ro
+    networks:
+      - apps
+    restart: unless-stopped
+
+networks:
+  apps:
+    external: true
