@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fundraiser — Página de muestra</title>
+    <meta name="description" content="Fundraiser — Página de muestra detrás de Traefik." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.91L18.18 22 12 18.77 5.82 22 7 14.18l-5-4.91 6.91-1.01L12 2z" fill="#6C5CE7"/></svg>
+          <span>Fundraiser</span>
+        </div>
+        <nav class="nav">
+          <a href="#caracteristicas">Características</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#contacto">Contacto</a>
+          <button class="btn primary" id="ctaHeader">Comenzar</button>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Una página de muestra, lista para Traefik</h1>
+          <p>Este sitio estático está dockerizado y preparado para ser publicado en <strong>fundraiser.com.ar</strong> detrás de un proxy Traefik.</p>
+          <div class="actions">
+            <a class="btn primary" href="#caracteristicas">Ver características</a>
+            <a class="btn ghost" href="#como-funciona">Cómo funciona</a>
+          </div>
+        </div>
+        <div class="shape"></div>
+      </section>
+
+      <section id="caracteristicas" class="features container">
+        <h2>Características principales</h2>
+        <div class="grid">
+          <article>
+            <h3>Dockerizada</h3>
+            <p>Construida con Nginx en una imagen ligera. Despliegue simple y reproducible.</p>
+          </article>
+          <article>
+            <h3>Traefik-ready</h3>
+            <p>Incluye labels para enrutamiento HTTP/HTTPS, redirección y TLS mediante un <em>certresolver</em>.</p>
+          </article>
+          <article>
+            <h3>Estática y veloz</h3>
+            <p>HTML, CSS y un poco de JavaScript. Ideal para landings y documentación.</p>
+          </article>
+          <article>
+            <h3>Fácil de personalizar</h3>
+            <p>Estructura simple en la carpeta <code>/site</code>. Edita estilos, textos e imágenes a gusto.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="how-it-works">
+        <div class="container">
+          <h2>Cómo funciona</h2>
+          <ol class="steps">
+            <li>Construimos la imagen: <code>docker compose build</code>.</li>
+            <li>Publicamos el servicio con labels de Traefik: <code>docker compose up -d</code>.</li>
+            <li>Traefik enruta el dominio <strong>fundraiser.com.ar</strong> hacia este contenedor.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="contacto" class="cta">
+        <div class="container">
+          <h2>¿Listo para personalizar?</h2>
+          <p>Modifica el contenido en <code>/site</code> y despliega de nuevo. ¡Eso es todo!</p>
+          <a class="btn primary" href="#" id="ctaFooter">Empezar ahora</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="year"></span> Fundraiser — Página de muestra.</small>
+        <small>Servido por Nginx en Docker · Traefik</small>
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+  </html>
+

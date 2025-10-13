@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  fundraiser-web:
+    image: ${PROJECT_NAME}-web:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${PROJECT_NAME}-web
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=${TRAEFIK_NETWORK}"
+
+      # Servicio backend (puerto interno de Nginx)
+      - "traefik.http.services.${PROJECT_NAME}.loadbalancer.server.port=80"
+
+      # Router HTTPS principal
+      - "traefik.http.routers.${PROJECT_NAME}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}.entrypoints=${ENTRYPOINT_WEBSECURE}"
+      - "traefik.http.routers.${PROJECT_NAME}.tls=true"
+      - "traefik.http.routers.${PROJECT_NAME}.tls.certresolver=${CERT_RESOLVER}"
+
+      # Router HTTP con redirección a HTTPS
+      - "traefik.http.routers.${PROJECT_NAME}-http.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}-http.entrypoints=${ENTRYPOINT_WEB}"
+      - "traefik.http.routers.${PROJECT_NAME}-http.middlewares=${PROJECT_NAME}-https-redirect"
+      - "traefik.http.middlewares.${PROJECT_NAME}-https-redirect.redirectscheme.scheme=https"
+
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true
+    name: ${TRAEFIK_NETWORK}
+
