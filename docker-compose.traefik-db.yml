@@ -4,15 +4,32 @@ services:
     container_name: traefik
     command:
       - --providers.file.filename=/dynamic.yml
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
       - --entrypoints.db.address=:5433
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --api.dashboard=true
+      - --certificatesresolvers.${CERT_RESOLVER}.acme.httpchallenge=true
+      - --certificatesresolvers.${CERT_RESOLVER}.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.${CERT_RESOLVER}.acme.email=${ACME_EMAIL}
+      - --certificatesresolvers.${CERT_RESOLVER}.acme.storage=/letsencrypt/acme.json
     ports:
+      - "80:80"
+      - "443:443"
       - "5433:5433"
     volumes:
       - ./dynamic.yml:/dynamic.yml:ro
+      - ./letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - apps
+      - traefik
     restart: unless-stopped
 
 networks:
   apps:
     external: true
+  traefik:
+    external: true
+    name: ${TRAEFIK_NETWORK}
