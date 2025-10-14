@@ -3,92 +3,248 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fundraiser — Página de muestra</title>
-    <meta name="description" content="Fundraiser — Página de muestra detrás de Traefik." />
+    <title>Fundraiser SAS — Cobranza, pagos y tecnología</title>
+    <meta name="description" content="Cobranza, pagos y soluciones tecnológicas omnicanal para organizaciones con alta volumetría. PCI DSS, KYC/AML, conciliación y reportes en tiempo real." />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <header class="site-header">
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-3">
       <div class="container">
-        <div class="brand">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.91L18.18 22 12 18.77 5.82 22 7 14.18l-5-4.91 6.91-1.01L12 2z" fill="#6C5CE7"/></svg>
-          <span>Fundraiser</span>
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="/assets/logo.svg" alt="Fundraiser" height="28" />
+          <span class="fw-bold">Fundraiser SAS</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#valor">Propuesta de valor</a></li>
+            <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sectores">Sectores</a></li>
+            <li class="nav-item"><a class="nav-link" href="#cumplimiento">Cumplimiento</a></li>
+            <li class="nav-item ms-lg-3"><a class="btn btn-brand" href="#contacto" id="ctaHeader">Hablar con nosotros</a></li>
+          </ul>
         </div>
-        <nav class="nav">
-          <a href="#caracteristicas">Características</a>
-          <a href="#como-funciona">Cómo funciona</a>
-          <a href="#contacto">Contacto</a>
-          <button class="btn primary" id="ctaHeader">Comenzar</button>
-        </nav>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
       </div>
-    </header>
+    </nav>
 
     <main>
-      <section class="hero">
-        <div class="container">
-          <h1>Una página de muestra, lista para Traefik</h1>
-          <p>Este sitio estático está dockerizado y preparado para ser publicado en <strong>fundraiser.com.ar</strong> detrás de un proxy Traefik.</p>
-          <div class="actions">
-            <a class="btn primary" href="#caracteristicas">Ver características</a>
-            <a class="btn ghost" href="#como-funciona">Cómo funciona</a>
+      <!-- Hero -->
+      <section class="hero-brand text-white">
+        <div class="container py-5 py-lg-6">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <h1 class="display-5 fw-bold mb-3">
+                Cobranza, pagos y tecnología para organizaciones de alta volumetría
+              </h1>
+              <p class="lead mb-4 opacity-90">
+                Somos una sociedad argentina especializada en soluciones de punta a punta: plataforma multisistemas, locales a la calle, pasarelas de pago con checkout para e‑commerce y equipos expertos. Trazabilidad, seguridad y cumplimiento normativo en cada operación.
+              </p>
+              <div class="d-flex gap-3 flex-wrap">
+                <a class="btn btn-light" href="mailto:hola@fundraiser.com.ar">Escribir a hola@fundraiser.com.ar</a>
+                <a class="btn btn-outline-light" href="#contacto">Completar formulario</a>
+              </div>
+              <p class="mt-3 small mb-0">Habilitados y certificados <strong>PCI DSS</strong>.</p>
+            </div>
+            <div class="col-lg-5 text-center text-lg-end">
+              <img src="/assets/logo.svg" alt="Fundraiser" class="hero-watermark" />
+            </div>
           </div>
         </div>
-        <div class="shape"></div>
       </section>
 
-      <section id="caracteristicas" class="features container">
-        <h2>Características principales</h2>
-        <div class="grid">
-          <article>
-            <h3>Dockerizada</h3>
-            <p>Construida con Nginx en una imagen ligera. Despliegue simple y reproducible.</p>
-          </article>
-          <article>
-            <h3>Traefik-ready</h3>
-            <p>Incluye labels para enrutamiento HTTP/HTTPS, redirección y TLS mediante un <em>certresolver</em>.</p>
-          </article>
-          <article>
-            <h3>Estática y veloz</h3>
-            <p>HTML, CSS y un poco de JavaScript. Ideal para landings y documentación.</p>
-          </article>
-          <article>
-            <h3>Fácil de personalizar</h3>
-            <p>Estructura simple en la carpeta <code>/site</code>. Edita estilos, textos e imágenes a gusto.</p>
-          </article>
+      <!-- Propuesta de valor -->
+      <section id="valor" class="py-5 bg-light">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-lg-8">
+              <h2 class="h1 mb-3">Propuesta de valor</h2>
+              <p class="text-secondary">Integramos canales físicos y digitales para cobrar, conciliar y reportar con velocidad y precisión.</p>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Plataforma propia interoperable</h5>
+                  <p class="card-text">APIs, archivos, WhatsApp y redes para integraciones rápidas y robustas.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Operación omnicanal</h5>
+                  <p class="card-text">Online + locales físicos para recaudo con efectivo y medios digitales.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">KYC/AML y antifraude</h5>
+                  <p class="card-text">Cumplimiento normativo, listas restrictivas y verificación de identidad.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Reportes en tiempo real</h5>
+                  <p class="card-text">Conciliación automática y saldos claros con métricas operativas.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Alta volumetría y efectivo</h5>
+                  <p class="card-text">Equipo con experiencia en operaciones masivas y manejo de efectivo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="como-funciona" class="how-it-works">
+      <!-- Servicios en solapas -->
+      <section id="servicios" class="py-5">
         <div class="container">
-          <h2>Cómo funciona</h2>
-          <ol class="steps">
-            <li>Construimos la imagen: <code>docker compose build</code>.</li>
-            <li>Publicamos el servicio con labels de Traefik: <code>docker compose up -d</code>.</li>
-            <li>Traefik enruta el dominio <strong>fundraiser.com.ar</strong> hacia este contenedor.</li>
-          </ol>
+          <h2 class="h1 mb-4">Servicios</h2>
+          <ul class="nav nav-tabs" id="tabServicios" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-cobranza" data-bs-toggle="tab" data-bs-target="#pane-cobranza" type="button" role="tab" aria-controls="pane-cobranza" aria-selected="true">Cobranza de impuestos y servicios</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-remesas" data-bs-toggle="tab" data-bs-target="#pane-remesas" type="button" role="tab" aria-controls="pane-remesas" aria-selected="false">Remesas familiares</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-desarrollo" data-bs-toggle="tab" data-bs-target="#pane-desarrollo" type="button" role="tab" aria-controls="pane-desarrollo" aria-selected="false">Desarrollo tecnológico</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-outsourcing" data-bs-toggle="tab" data-bs-target="#pane-outsourcing" type="button" role="tab" aria-controls="pane-outsourcing" aria-selected="false">Outsourcing de cobranza</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-recuento" data-bs-toggle="tab" data-bs-target="#pane-recuento" type="button" role="tab" aria-controls="pane-recuento" aria-selected="false">Recuento y control de billetes</button>
+            </li>
+          </ul>
+          <div class="tab-content border border-top-0 rounded-bottom p-4 shadow-sm">
+            <div class="tab-pane fade show active" id="pane-cobranza" role="tabpanel" aria-labelledby="tab-cobranza" tabindex="0">
+              <p>Brindamos el servicio integral de recepción y acreditación de pagos de tasas, impuestos y servicios. Nuestra tecnología multisistemas integra distintas fuentes y formatos (APIs, SFTP, lotes) para validar, cobrar y conciliar en tiempo real. Disponemos de múltiples locales a la calle para atención presencial y recepción de efectivo, además de canales digitales.</p>
+            </div>
+            <div class="tab-pane fade" id="pane-remesas" role="tabpanel" aria-labelledby="tab-remesas" tabindex="0">
+              <p>Atendemos remesas en nuestros locales, con verificación de identidad, registro de operaciones y recibos estandarizados, siguiendo prácticas de KYC/AML y límites operativos según normativa vigente. Operaciones hacia y desde el exterior con trazabilidad completa.</p>
+            </div>
+            <div class="tab-pane fade" id="pane-desarrollo" role="tabpanel" aria-labelledby="tab-desarrollo" tabindex="0">
+              <h5 class="mb-2">Software de gestión de cobranza y pagos por WhatsApp/redes</h5>
+              <p>Construimos e integramos módulos y procesos de cobro que permiten iniciar y completar pagos directamente desde WhatsApp, Instagram, Facebook y links de pago, con seguimiento del estado, recordatorios automáticos, comprobantes en línea y conciliación y exportación contable. Ofrecemos SDKs, APIs y flujos conversacionales con bots y agentes humanos.</p>
+            </div>
+            <div class="tab-pane fade" id="pane-outsourcing" role="tabpanel" aria-labelledby="tab-outsourcing" tabindex="0">
+              <p>Operamos como outsourcer de tecnología y procesos: generamos avisos, links de cobro, recaudo, conciliaciones, devengamientos y reportes; administramos medios de pago y reglas de ruteo, y entregamos cuentas claras: qué se cobró, cuándo y a quién se acreditó, con SLA y métricas. Sumado a un completo webclient para acceso y control de cuentas corrientes.</p>
+            </div>
+            <div class="tab-pane fade" id="pane-recuento" role="tabpanel" aria-labelledby="tab-recuento" tabindex="0">
+              <p>Servicio especializado para transportadoras de caudales, supermercados y negocios de alto efectivo. Incluye recuento, clasificación, detección de falsos, identificación de billetes deteriorados y categorización por calidad para su tratamiento adecuado. Entregamos actas y reportes operativos.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="contacto" class="cta">
+      <!-- Sectores -->
+      <section id="sectores" class="py-5 bg-light">
         <div class="container">
-          <h2>¿Listo para personalizar?</h2>
-          <p>Modifica el contenido en <code>/site</code> y despliega de nuevo. ¡Eso es todo!</p>
-          <a class="btn primary" href="#" id="ctaFooter">Empezar ahora</a>
+          <h2 class="h1 mb-4">Sectores que atendemos</h2>
+          <p class="text-secondary">A través de nuestros sistemas y equipos especializados:</p>
+          <div class="row g-2 mt-2">
+            <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">Gobiernos y entes recaudadores</span></div>
+            <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">Utilities y telcos</span></div>
+            <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">Retail y supermercados</span></div>
+            <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">Transportadoras de caudales</span></div>
+            <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">Clubes, cámaras y asociaciones</span></div>
+            <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">E‑commerce y SaaS</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cumplimiento y seguridad -->
+      <section id="cumplimiento" class="py-5">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+              <h2 class="h1 mb-3">Cumplimiento y seguridad</h2>
+              <ul class="list-checked">
+                <li>Controles de prevención de lavado <strong>(KYC/AML)</strong> y listas restrictivas.</li>
+                <li>Verificación de identidad, segregación de funciones y trazabilidad de fondos.</li>
+                <li>Protección de datos personales conforme a la Ley 25.326.</li>
+                <li><strong>PCI DSS</strong> habilitados para el tratamiento seguro de datos de pago.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="p-4 bg-brand-soft rounded-3 border">
+                <h5 class="mb-2">Transparencia operativa</h5>
+                <p class="mb-0">Reportes en tiempo real, conciliación automática y métricas con SLA.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA + Formulario -->
+      <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <h2 class="h1 mb-3">¿Querés integrar o visitar un local?</h2>
+              <p class="lead text-secondary">Escribinos a <a href="mailto:hola@fundraiser.com.ar" class="link-body-emphasis">hola@fundraiser.com.ar</a> o completá el formulario y te contactamos.</p>
+              <a class="btn btn-brand" href="mailto:hola@fundraiser.com.ar">Escribir ahora</a>
+            </div>
+            <div class="col-lg-6">
+              <form id="formContacto" class="card border-0 shadow-sm">
+                <div class="card-body">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label" for="nombre">Nombre</label>
+                      <input class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="email">Email</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="tu@email.com" required />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="empresa">Empresa</label>
+                      <input class="form-control" id="empresa" name="empresa" placeholder="Razón social / marca" />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="mensaje">Mensaje</label>
+                      <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Contanos brevemente tu necesidad"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer bg-white d-flex justify-content-end">
+                  <button type="submit" class="btn btn-brand" id="ctaFooter">Enviar consulta</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <small>© <span id="year"></span> Fundraiser — Página de muestra.</small>
-        <small>Servido por Nginx en Docker · Traefik</small>
+    <!-- Footer -->
+    <footer class="border-top py-4 small">
+      <div class="container d-flex flex-wrap gap-2 justify-content-between align-items-center">
+        <div>© <span id="year"></span> Fundraiser SAS · Todos los derechos reservados</div>
+        <div class="text-secondary">Operación omnicanal · PCI DSS · KYC/AML</div>
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="/script.js"></script>
   </body>
   </html>
