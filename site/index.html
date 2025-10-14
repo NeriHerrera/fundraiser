@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <!-- Header / Navbar -->
-    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-3">
+    <!-- Header / Navbar (overlay) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 end-0 py-3 z-3">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="#">
           <img src="/assets/logo.svg" alt="Fundraiser" height="28" />
@@ -29,7 +29,7 @@
             <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
             <li class="nav-item"><a class="nav-link" href="#sectores">Sectores</a></li>
             <li class="nav-item"><a class="nav-link" href="#cumplimiento">Cumplimiento</a></li>
-            <li class="nav-item ms-lg-3"><a class="btn btn-brand" href="#contacto" id="ctaHeader">Hablar con nosotros</a></li>
+            <li class="nav-item ms-lg-3"><a class="btn btn-light" href="#contacto" id="ctaHeader">Hablar con nosotros</a></li>
           </ul>
         </div>
       </div>
@@ -37,10 +37,11 @@
 
     <main>
       <!-- Hero -->
-      <section class="hero-brand text-white">
+      <section class="hero-brand text-white position-relative overflow-hidden">
         <div class="container py-5 py-lg-6">
           <div class="row align-items-center g-4">
             <div class="col-lg-7">
+              <div class="eyebrow text-uppercase small fw-semibold mb-2">Plataforma interoperable · Omnicanal</div>
               <h1 class="display-5 fw-bold mb-3">
                 Cobranza, pagos y tecnología para organizaciones de alta volumetría
               </h1>
@@ -57,11 +58,34 @@
               <img src="/assets/logo.svg" alt="Fundraiser" class="hero-watermark" />
             </div>
           </div>
+
+          <div class="row g-3 mt-4 hero-stats">
+            <div class="col-12 col-md-4">
+              <div class="stat-card">
+                <div class="stat-title">Cobranza omnicanal</div>
+                <div class="stat-desc">Online + locales físicos</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="stat-card">
+                <div class="stat-title">PCI DSS</div>
+                <div class="stat-desc">Seguridad de datos de pago</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="stat-card">
+                <div class="stat-title">Reportes en tiempo real</div>
+                <div class="stat-desc">Conciliación automática</div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- Wave separator -->
+        <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#fff" d="M0,64L48,64C96,64,192,64,288,58.7C384,53,480,43,576,37.3C672,32,768,32,864,37.3C960,43,1056,53,1152,53.3C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"/></svg>
       </section>
 
       <!-- Propuesta de valor -->
-      <section id="valor" class="py-5 bg-light">
+      <section id="valor" class="py-5 bg-white">
         <div class="container">
           <div class="row mb-4">
             <div class="col-lg-8">
@@ -118,7 +142,7 @@
       <section id="servicios" class="py-5">
         <div class="container">
           <h2 class="h1 mb-4">Servicios</h2>
-          <ul class="nav nav-tabs" id="tabServicios" role="tablist">
+          <ul class="nav nav-tabs brand-tabs" id="tabServicios" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="tab-cobranza" data-bs-toggle="tab" data-bs-target="#pane-cobranza" type="button" role="tab" aria-controls="pane-cobranza" aria-selected="true">Cobranza de impuestos y servicios</button>
             </li>
@@ -135,7 +159,7 @@
               <button class="nav-link" id="tab-recuento" data-bs-toggle="tab" data-bs-target="#pane-recuento" type="button" role="tab" aria-controls="pane-recuento" aria-selected="false">Recuento y control de billetes</button>
             </li>
           </ul>
-          <div class="tab-content border border-top-0 rounded-bottom p-4 shadow-sm">
+          <div class="tab-content brand-tab-content border border-top-0 rounded-bottom p-4 shadow-sm">
             <div class="tab-pane fade show active" id="pane-cobranza" role="tabpanel" aria-labelledby="tab-cobranza" tabindex="0">
               <p>Brindamos el servicio integral de recepción y acreditación de pagos de tasas, impuestos y servicios. Nuestra tecnología multisistemas integra distintas fuentes y formatos (APIs, SFTP, lotes) para validar, cobrar y conciliar en tiempo real. Disponemos de múltiples locales a la calle para atención presencial y recepción de efectivo, además de canales digitales.</p>
             </div>
@@ -248,4 +272,3 @@
     <script src="/script.js"></script>
   </body>
   </html>
-
