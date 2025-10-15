@@ -11,7 +11,7 @@ body {
   /* Fondo global: imagen arriba + degradado rojo→gris→negro */
   background:
     url('/assets/fundraiser-bg.jpg') top center / 100% auto no-repeat,
-    linear-gradient(180deg, var(--brand) 0%, #9ca3af 40%, #000 100%);
+    linear-gradient(to bottom, #E6363B 0%, #9ca3af 50%, #000000 100%);
 }
 
 /* Brand helpers */
