@@ -19,3 +19,17 @@ if (form) {
     window.location.href = `mailto:hola@fundraiser.com.ar?subject=${subject}&body=${body}`;
   });
 }
+
+// Cerrar el menú colapsado al hacer clic en un enlace (mejor UX móvil)
+const navCollapseEl = document.getElementById('navMain');
+if (navCollapseEl) {
+  const links = navCollapseEl.querySelectorAll('.nav-link');
+  links.forEach((lnk) => {
+    lnk.addEventListener('click', () => {
+      // requiere bootstrap.bundle (ya incluido en index.html)
+      const instance = window.bootstrap?.Collapse?.getInstance?.(navCollapseEl)
+        || (window.bootstrap ? new window.bootstrap.Collapse(navCollapseEl, { toggle: false }) : null);
+      if (instance && navCollapseEl.classList.contains('show')) instance.hide();
+    });
+  });
+}

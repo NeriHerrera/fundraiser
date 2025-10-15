@@ -63,6 +63,27 @@ body {
 .navbar.navbar-dark .navbar-brand { color: #fff; }
 .navbar.navbar-dark .navbar-brand img { filter: brightness(0) invert(1); }
 
+/* Navbar mobile collapse: visibility and layering */
+/* Ensure the overlayed navbar stays above content */
+.navbar.z-3 { z-index: 1030 !important; }
+
+@media (max-width: 991.98px) {
+  /* Give the collapsed menu a solid, readable backdrop */
+  .navbar .navbar-collapse {
+    background: rgba(17, 24, 39, 0.92); /* near-black with opacity */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: .75rem 1rem;
+    margin-top: .5rem;
+    border-radius: .5rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,.25);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .navbar .navbar-nav .nav-link { padding: .5rem 0; }
+}
+
 /* Cards tidy spacing */
 .card .card-title { color: #111827; }
 .card .card-text { color: #6b7280; }
