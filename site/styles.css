@@ -8,9 +8,11 @@ html, body { min-height: 100%; }
 html { scroll-behavior: smooth; }
 body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  /* Fondo global: degradado uniforme (arriba rojo → mitad gris → abajo negro) */
-  background: linear-gradient(to bottom, #E6363B 0%, #9ca3af 50%, #000000 100%);
-  background-repeat: no-repeat;
+  /* Fondo global: imagen arriba + degradado único (rojo→gris→negro) */
+  background-image: url('/assets/fundraiser-bg.jpg'), linear-gradient(to bottom, #E6363B 0%, #9ca3af 50%, #000000 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top center, top left;
+  background-size: 100% auto, 100% 100%;
 }
 
 /* Brand helpers */
