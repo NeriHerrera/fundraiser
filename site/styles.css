@@ -8,10 +8,8 @@ html, body { height: 100%; }
 html { scroll-behavior: smooth; }
 body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  /* Fondo global: imagen arriba + degradado rojo→gris→negro */
-  background:
-    url('/assets/fundraiser-bg.jpg') top center / 100% auto no-repeat,
-    linear-gradient(to bottom, #E6363B 0%, #9ca3af 50%, #000000 100%);
+  /* Fondo global: degradado uniforme (arriba rojo → mitad gris → abajo negro) */
+  background: linear-gradient(to bottom, #E6363B 0%, #9ca3af 50%, #000000 100%);
 }
 
 /* Brand helpers */
