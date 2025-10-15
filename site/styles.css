@@ -108,3 +108,22 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .brand-tabs .nav-link { color: #6b7280; }
 .brand-tabs .nav-link.active { color: var(--brand); border-color: var(--brand) var(--brand) transparent; }
 .brand-tab-content { border-color: #e5e7eb !important; }
+
+/* --- Overrides: uniform gradient only + better contrast --- */
+/* Force background to single gradient (remove image) */
+body {
+  background: linear-gradient(to bottom, #E6363B 0%, #9ca3af 50%, #000000 100%) !important;
+  background-repeat: no-repeat !important;
+  color: #f3f4f6;
+}
+
+/* Keep sections transparent so gradient is continuous */
+section.bg-white,
+section.bg-light { background: transparent !important; }
+
+/* Improve contrast of secondary/muted texts on dark background */
+.text-secondary, .text-body-secondary, .text-muted { color: #d1d5db !important; }
+footer .text-secondary, footer .text-body-secondary, footer .text-muted { color: #cbd5e1 !important; }
+
+/* Links styled as body emphasis should be light on dark */
+a.link-body-emphasis { color: #f9fafb !important; }
