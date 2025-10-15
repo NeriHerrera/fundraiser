@@ -109,6 +109,10 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .brand-tabs .nav-link.active { color: var(--brand); border-color: var(--brand) var(--brand) transparent; }
 .brand-tab-content { border-color: #e5e7eb !important; }
 
+/* Hide Desarrollo tecnologico tab and pane */
+#tab-desarrollo,
+#pane-desarrollo { display: none !important; }
+
 /* --- Overrides: uniform gradient only + better contrast --- */
 /* Force background to single gradient (remove image) */
 body {
