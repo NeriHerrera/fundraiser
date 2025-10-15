@@ -31,6 +31,19 @@ body {
 .hero-brand .opacity-90 { opacity: .9; }
 .hero-watermark { height: 96px; opacity: .25; filter: brightness(0) invert(1); }
 .hero-wave { display: none; }
+
+/* Uniform page gradient: remove section backgrounds so the gradient is continuous */
+section.bg-white,
+section.bg-light { background: transparent !important; }
+
+/* Light text on dark gradient for main sections (cards keep their own colors) */
+#valor, #servicios, #sectores, #cumplimiento, #contacto, footer { color: #f3f4f6; }
+
+/* Ensure card content stays legible on white cards */
+.card { color: #212529; }
+
+/* Footer border tone over dark background */
+footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .eyebrow { letter-spacing: .08em; opacity: .9; }
 .hero-stats .stat-card {
   background: rgba(255,255,255,.08);
