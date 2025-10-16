@@ -76,7 +76,8 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .navbar.navbar-dark .nav-link { color: rgba(255,255,255,.9); }
 .navbar.navbar-dark .nav-link:hover { color: #fff; }
 .navbar.navbar-dark .navbar-brand { color: #fff; }
-.navbar.navbar-dark .navbar-brand img { filter: brightness(0) invert(1); }
+.navbar.navbar-dark .navbar-brand img { filter: brightness(0) invert(1); height: 36px; }
+@media (min-width: 992px) { .navbar.navbar-brand img { height: 48px; } }
 /* Emphasize brand name */
 .navbar .brand-name { font-weight: 800; letter-spacing: .02em; font-size: 1.4rem; }
 @media (min-width: 992px) { .navbar .brand-name { font-size: 1.8rem; } }
@@ -113,8 +114,8 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .brand-tabs .nav-link { color: rgba(255,255,255,.92); }
 .brand-tabs .nav-link.active { color: var(--brand); border-color: var(--brand) var(--brand) transparent; }
 .brand-tab-content { border-color: #e5e7eb !important; }
-/* Tabs in one row, horizontally scrollable on small screens */
-.brand-tabs { flex-wrap: wrap; overflow: visible; justify-content: center; gap: .25rem; }
+/* Tabs in one row, centered with even spacing */
+.brand-tabs { flex-wrap: wrap; overflow: visible; justify-content: center; gap: .5rem; }
 .brand-tabs .nav-link { white-space: normal; padding: .5rem .75rem; }
 /* Fit tabs without scrollbar on smaller screens */
 @media (max-width: 991.98px) { .brand-tabs .nav-link { padding: .35rem .6rem; font-size: .9rem; } }
