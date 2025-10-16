@@ -79,9 +79,11 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .navbar.navbar-dark .nav-link { color: rgba(255,255,255,.9); }
 .navbar.navbar-dark .nav-link:hover { color: #fff; }
 .navbar.navbar-dark .navbar-brand { color: #fff; }
-.navbar.navbar-dark .navbar-brand img { filter: brightness(0) invert(1); height: 48px; }
+/* Larger logo default size (mobile/tablet) */
+.navbar.navbar-dark .navbar-brand img { filter: brightness(0) invert(1); height: 60px; }
 /* Increase brand/logo size on larger screens */
-@media (min-width: 992px) { .navbar .navbar-brand img { height: 64px; } }
+/* Even larger logo on desktop */
+@media (min-width: 992px) { .navbar .navbar-brand img { height: 84px; } }
 /* Emphasize brand name */
 .navbar .brand-name { font-weight: 800; letter-spacing: .02em; font-size: 1.4rem; }
 @media (min-width: 992px) { .navbar .brand-name { font-size: 1.8rem; } }
