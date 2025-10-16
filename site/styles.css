@@ -30,6 +30,9 @@ body {
 /* Hero */
 .hero-brand { background: transparent; }
 .hero-brand .opacity-90 { opacity: .9; }
+/* Push hero content a bit lower to create distance from the navbar */
+.hero-brand .container { padding-top: 6rem !important; }
+@media (min-width: 992px) { .hero-brand .container { padding-top: 7.5rem !important; } }
 .hero-watermark { height: 96px; opacity: .25; filter: brightness(0) invert(1); display: none; }
 .hero-wave { display: none; }
 
@@ -76,8 +79,9 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .navbar.navbar-dark .nav-link { color: rgba(255,255,255,.9); }
 .navbar.navbar-dark .nav-link:hover { color: #fff; }
 .navbar.navbar-dark .navbar-brand { color: #fff; }
-.navbar.navbar-dark .navbar-brand img { filter: brightness(0) invert(1); height: 36px; }
-@media (min-width: 992px) { .navbar.navbar-brand img { height: 48px; } }
+.navbar.navbar-dark .navbar-brand img { filter: brightness(0) invert(1); height: 48px; }
+/* Increase brand/logo size on larger screens */
+@media (min-width: 992px) { .navbar .navbar-brand img { height: 64px; } }
 /* Emphasize brand name */
 .navbar .brand-name { font-weight: 800; letter-spacing: .02em; font-size: 1.4rem; }
 @media (min-width: 992px) { .navbar .brand-name { font-size: 1.8rem; } }
@@ -85,6 +89,16 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 /* Navbar mobile collapse: visibility and layering */
 /* Ensure the overlayed navbar stays above content */
 .navbar.z-3 { z-index: 1030 !important; }
+
+/* Make the top menu taller for more prominence */
+.navbar.py-3 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
+@media (min-width: 992px) {
+  .navbar.py-3 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+}
+
+/* Slightly larger nav link text */
+.navbar .nav-link { font-size: 1.05rem; }
+@media (min-width: 992px) { .navbar .nav-link { font-size: 1.1rem; } }
 
 @media (max-width: 991.98px) {
   /* Give the collapsed menu a solid, readable backdrop */
