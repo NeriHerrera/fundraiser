@@ -32,8 +32,8 @@ body {
 .hero-brand .opacity-90 { opacity: .9; }
 /* Push hero content a bit lower to create distance from the navbar */
 /* Adjust distance from navbar to hero copy (~half of previous) */
-.hero-brand .container { padding-top: 6rem !important; }
-@media (min-width: 992px) { .hero-brand .container { padding-top: 7.5rem !important; } }
+.hero-brand .container { padding-top: 7.5rem !important; }
+@media (min-width: 992px) { .hero-brand .container { padding-top: 9rem !important; } }
 .hero-watermark { height: 96px; opacity: .25; filter: brightness(0) invert(1); display: none; }
 .hero-wave { display: none; }
 
@@ -92,6 +92,12 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 /* Navbar mobile collapse: visibility and layering */
 /* Ensure the overlayed navbar stays above content */
 .navbar.z-3 { z-index: 1030 !important; }
+
+/* White separators above and below the top menu */
+.navbar {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
 
 /* Make the top menu taller for more prominence */
 .navbar.py-3 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
