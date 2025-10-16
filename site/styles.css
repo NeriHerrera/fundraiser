@@ -31,9 +31,9 @@ body {
 .hero-brand { background: transparent; }
 .hero-brand .opacity-90 { opacity: .9; }
 /* Push hero content a bit lower to create distance from the navbar */
-/* Increase distance from navbar to hero copy */
-.hero-brand .container { padding-top: 12rem !important; }
-@media (min-width: 992px) { .hero-brand .container { padding-top: 15rem !important; } }
+/* Adjust distance from navbar to hero copy (~half of previous) */
+.hero-brand .container { padding-top: 6rem !important; }
+@media (min-width: 992px) { .hero-brand .container { padding-top: 7.5rem !important; } }
 .hero-watermark { height: 96px; opacity: .25; filter: brightness(0) invert(1); display: none; }
 .hero-wave { display: none; }
 
