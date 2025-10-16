@@ -32,8 +32,8 @@ body {
 .hero-brand .opacity-90 { opacity: .9; }
 /* Push hero content a bit lower to create distance from the navbar */
 /* Adjust distance from navbar to hero copy (~half of previous) */
-.hero-brand .container { padding-top: 8rem !important; }
-@media (min-width: 992px) { .hero-brand .container { padding-top: 9.5rem !important; } }
+.hero-brand .container { padding-top: 8.5rem !important; }
+@media (min-width: 992px) { .hero-brand .container { padding-top: 10rem !important; } }
 .hero-watermark { height: 96px; opacity: .25; filter: brightness(0) invert(1); display: none; }
 .hero-wave { display: none; }
 
@@ -85,6 +85,8 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 /* Increase brand/logo size on larger screens */
 /* Even larger logo on desktop */
 @media (min-width: 992px) { .navbar .navbar-brand img { height: 84px; } }
+/* Reduce vertical padding inside brand to bring borders closer */
+.navbar .navbar-brand { padding-top: 0; padding-bottom: 0; }
 /* Emphasize brand name */
 .navbar .brand-name { font-weight: 800; letter-spacing: .02em; font-size: 1.4rem; }
 @media (min-width: 992px) { .navbar .brand-name { font-size: 1.8rem; } }
@@ -99,14 +101,16 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
   border-bottom: 1px solid #ffffff;
 }
 
-/* Make the top menu taller for more prominence */
-.navbar.py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+/* Tighter vertical padding so borders sit closer to text */
+.navbar.py-3 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
 @media (min-width: 992px) {
-  .navbar.py-3 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+  .navbar.py-3 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
 }
 
 /* Slightly larger nav link text */
 .navbar .nav-link { font-size: 1.05rem; }
+/* Reduce vertical padding of nav links on desktop/tablet for tighter fit */
+.navbar .navbar-nav .nav-link { padding-top: .25rem; padding-bottom: .25rem; }
 @media (min-width: 992px) { .navbar .nav-link { font-size: 1.1rem; } }
 
 @media (max-width: 991.98px) {
