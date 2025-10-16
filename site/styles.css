@@ -108,6 +108,9 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .brand-tabs .nav-link { color: #6b7280; }
 .brand-tabs .nav-link.active { color: var(--brand); border-color: var(--brand) var(--brand) transparent; }
 .brand-tab-content { border-color: #e5e7eb !important; }
+/* Tabs in one row, horizontally scrollable on small screens */
+.brand-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.brand-tabs .nav-link { white-space: nowrap; }
 /* Hide footer tagline */
 footer .text-secondary { display: none !important; }
 
