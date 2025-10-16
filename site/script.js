@@ -1,4 +1,4 @@
-﻿// A�o din�mico en el footer
+﻿// Año dinámico en el footer
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -12,7 +12,7 @@ if (form) {
     const empresa = document.getElementById('empresa')?.value?.trim() || '';
     const mensaje = document.getElementById('mensaje')?.value?.trim() || '';
 
-    const subject = encodeURIComponent(`Consulta web � ${empresa || 'sin empresa'}`);
+    const subject = encodeURIComponent(`Consulta web - ${empresa || 'sin empresa'}`);
     const body = encodeURIComponent(
       `Nombre: ${nombre}\nEmail: ${email}\nEmpresa: ${empresa}\n\nMensaje:\n${mensaje}`
     );
@@ -20,20 +20,15 @@ if (form) {
   });
 }
 
-// Cerrar el men� colapsado al hacer clic en un enlace (mejor UX m�vil)
+// Cerrar el menú colapsado al hacer clic en un enlace (mejor UX móvil)
 const navCollapseEl = document.getElementById('navMain');
 if (navCollapseEl) {
-  const links = navCollapseEl.querySelectorAll('.nav-link');
+  const links = navCollapseEl.querySelectorAll('.nav-link, .dropdown-item');
   links.forEach((lnk) => {
     lnk.addEventListener('click', () => {
-      // requiere bootstrap.bundle (ya incluido en index.html)
       const instance = window.bootstrap?.Collapse?.getInstance?.(navCollapseEl)
         || (window.bootstrap ? new window.bootstrap.Collapse(navCollapseEl, { toggle: false }) : null);
       if (instance && navCollapseEl.classList.contains('show')) instance.hide();
     });
   });
 }
-
-
-
-// Cerrar navbar al elegir en dropdown (móvil)\nif (navCollapseEl) {\n  navCollapseEl.querySelectorAll('.dropdown-item').forEach((lnk)=>{\n    lnk.addEventListener('click', ()=>{\n      const instance = window.bootstrap?.Collapse?.getInstance?.(navCollapseEl)\n        || (window.bootstrap ? new window.bootstrap.Collapse(navCollapseEl, { toggle: false }) : null);\n      if (instance && navCollapseEl.classList.contains('show')) instance.hide();\n    });\n  });\n}\n
