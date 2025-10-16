@@ -37,6 +37,16 @@
       <li><a class="dropdown-item" href="#contacto">Contacto</a></li>
     </ul>
   </li>
+            <li class="nav-item dropdown ms-lg-3">
+              <a class="nav-link dropdown-toggle" href="#" id="navLang" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="current-lang-flag">ES</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navLang">
+                <li><a class="dropdown-item lang-select" data-lang="es" href="#">🇪🇸 Español</a></li>
+                <li><a class="dropdown-item lang-select" data-lang="en" href="#">🇺🇸 English</a></li>
+                <li><a class="dropdown-item lang-select" data-lang="pt" href="#">🇧🇷 Português</a></li>
+              </ul>
+            </li>
 </ul>
         </div>
       </div>
@@ -48,10 +58,10 @@
         <div class="container py-5 py-lg-6">
           <div class="row align-items-center g-4">
             <div class="col-lg-7">
-              <h1 class="display-5 fw-bold mb-3">
+              <h1 class="display-5 fw-bold mb-3" id="hero-title">
                 Cobranza, pagos y tecnología para organizaciones de alta volumetría
               </h1>
-              <p class="lead mb-4 opacity-90">
+              <p class="lead mb-4 opacity-90" id="hero-lead">
                 Somos una sociedad argentina especializada en soluciones de punta a punta: plataforma multisistemas, locales a la calle, pasarelas de pago con checkout para e‑commerce y equipos expertos. Trazabilidad, seguridad y cumplimiento normativo en cada operación.
               </p>
               <div class="d-flex gap-3 flex-wrap">
@@ -147,7 +157,7 @@
       <!-- Servicios en solapas -->
       <section id="servicios" class="py-5">
         <div class="container">
-          <h2 class="h1 mb-4">Servicios</h2>
+          <h2 class="h1 mb-4" id="servicios-h2">Servicios</h2>
           <ul class="nav nav-tabs brand-tabs" id="tabServicios" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="tab-cobranza" data-bs-toggle="tab" data-bs-target="#pane-cobranza" type="button" role="tab" aria-controls="pane-cobranza" aria-selected="true">Cobranza de impuestos y servicios</button>
@@ -167,20 +177,20 @@
           </ul>
           <div class="tab-content brand-tab-content border rounded-3 p-4 shadow-sm">
             <div class="tab-pane fade show active" id="pane-cobranza" role="tabpanel" aria-labelledby="tab-cobranza" tabindex="0">
-              <p>Brindamos el servicio integral de recepción y acreditación de pagos de tasas, impuestos y servicios. Nuestra tecnología multisistemas integra distintas fuentes y formatos (APIs, SFTP, lotes) para validar, cobrar y conciliar en tiempo real. Disponemos de múltiples locales a la calle para atención presencial y recepción de efectivo, además de canales digitales.</p>
+              <p id="p-cobranza">Brindamos el servicio integral de recepción y acreditación de pagos de tasas, impuestos y servicios. Nuestra tecnología multisistemas integra distintas fuentes y formatos (APIs, SFTP, lotes) para validar, cobrar y conciliar en tiempo real. Disponemos de múltiples locales a la calle para atención presencial y recepción de efectivo, además de canales digitales.</p>
             </div>
             <div class="tab-pane fade" id="pane-remesas" role="tabpanel" aria-labelledby="tab-remesas" tabindex="0">
-              <p>Atendemos remesas en nuestros locales, con verificación de identidad, registro de operaciónes y recibos estandarizados, siguiendo prácticas de KYC/AML y límites operativos según normativa vigente. operaciónes hacia y desde el exterior con trazabilidad completa.</p>
+              <p id="p-remesas">Atendemos remesas en nuestros locales, con verificación de identidad, registro de operaciónes y recibos estandarizados, siguiendo prácticas de KYC/AML y límites operativos según normativa vigente. operaciónes hacia y desde el exterior con trazabilidad completa.</p>
             </div>
             <div class="tab-pane fade" id="pane-desarrollo" role="tabpanel" aria-labelledby="tab-desarrollo" tabindex="0">
-              <h5 class="mb-2">Software de gestión de cobranza y pagos por WhatsApp/redes</h5>
+              <h5 class="mb-2" id="desarrollo-h5">Software de gestión de cobranza y pagos por WhatsApp/redes</h5>
               <p>Construimos e integramos módulos y procesos de cobro que permiten iniciar y completar pagos directamente desde WhatsApp, Instagram, Facebook y links de pago, con seguimiento del estado, recordatorios automáticos, comprobantes en línea y conciliación y exportación contable. Ofrecemos SDKs, APIs y flujos conversacionales con bots y agentes humanos.</p>
             </div>
             <div class="tab-pane fade" id="pane-outsourcing" role="tabpanel" aria-labelledby="tab-outsourcing" tabindex="0">
-              <p>Operamos como outsourcer de tecnolog&iacute;a y procesos: generamos avisos, links de cobro, recaudo, conciliaciónes, devengamientos y reportes; administramos medios de pago y reglas de ruteo, y entregamos cuentas claras: qu&eacute; se cobr&oacute;, cu&aacute;ndo y a qui&eacute;n se acredit&oacute;, con SLA y m&eacute;tricas. Sumado a un completo webclient para acceso y control de cuentas corrientes.</p>
+              <p id="p-outsourcing">Operamos como outsourcer de tecnolog&iacute;a y procesos: generamos avisos, links de cobro, recaudo, conciliaciónes, devengamientos y reportes; administramos medios de pago y reglas de ruteo, y entregamos cuentas claras: qu&eacute; se cobr&oacute;, cu&aacute;ndo y a qui&eacute;n se acredit&oacute;, con SLA y m&eacute;tricas. Sumado a un completo webclient para acceso y control de cuentas corrientes.</p>
             </div>
             <div class="tab-pane fade" id="pane-recuento" role="tabpanel" aria-labelledby="tab-recuento" tabindex="0">
-              <p>Servicio especializado para transportadoras de caudales, supermercados y negocios de alto efectivo. Incluye recuento, clasificación, detección de falsos, identificación de billetes deteriorados y categorización por calidad para su tratamiento adecuado. Entregamos actas y reportes operativos.</p>
+              <p id="p-recuento">Servicio especializado para transportadoras de caudales, supermercados y negocios de alto efectivo. Incluye recuento, clasificación, detección de falsos, identificación de billetes deteriorados y categorización por calidad para su tratamiento adecuado. Entregamos actas y reportes operativos.</p>
             </div>
           </div>
         </div>
@@ -189,12 +199,12 @@
       <!-- Desarrollo tecnol&oacute;gico -->
       <section id="desarrollo" class="py-5">
         <div class="container">
-          <h2 class="h1 mb-4">Desarrollo tecnol&oacute;gico</h2>
+          <h2 class="h1 mb-4" id="desarrollo-h2">Desarrollo tecnológico</h2>
           <div class="row">
             <div class="col-lg-10">
               <div class="brand-tab-content border rounded-3 p-4 shadow-sm">
-                <h5 class="mb-2">Software de gesti&oacute;n de cobranza y pagos por WhatsApp/redes</h5>
-                <p>Construimos e integramos m&oacute;dulos y procesos de cobro que permiten iniciar y completar pagos directamente desde WhatsApp, Instagram, Facebook y links de pago, con seguimiento del estado, recordatorios autom&aacute;ticos, comprobantes en l&iacute;nea y conciliaci&oacute;n y exportaci&oacute;n contable. Ofrecemos SDKs, APIs y flujos conversacionales con bots y agentes humanos.</p>
+                <h5 class="mb-2" id="desarrollo-h5">Software de gestión de cobranza y pagos por WhatsApp/redes</h5>
+                <p id="desarrollo-p">Construimos e integramos m&oacute;dulos y procesos de cobro que permiten iniciar y completar pagos directamente desde WhatsApp, Instagram, Facebook y links de pago, con seguimiento del estado, recordatorios autom&aacute;ticos, comprobantes en l&iacute;nea y conciliaci&oacute;n y exportaci&oacute;n contable. Ofrecemos SDKs, APIs y flujos conversacionales con bots y agentes humanos.</p>
               </div>
             </div>
           </div>
@@ -204,8 +214,8 @@
       <!-- Sectores -->
       <section id="sectores" class="py-5 bg-light">
         <div class="container">
-          <h2 class="h1 mb-4">Sectores que atendemos</h2>
-          <p class="text-secondary">A través de nuestros sistemas y equipos especializados:</p>
+          <h2 class="h1 mb-4" id="sectores-h2">Sectores que atendemos</h2>
+          <p class="text-secondary" id="sectores-p">A través de nuestros sistemas y equipos especializados:</p>
           <div class="row g-2 mt-2">
             <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">Gobiernos y entes recaudadores</span></div>
             <div class="col-6 col-md-4 col-lg-3"><span class="badge text-bg-light border w-100 py-2">Utilities y telcos</span></div>
@@ -222,7 +232,7 @@
         <div class="container">
           <div class="row align-items-center g-4">
             <div class="col-lg-6">
-              <h2 class="h1 mb-3">Cumplimiento y seguridad</h2>
+              <h2 class="h1 mb-3" id="cumpl-h2">Cumplimiento y seguridad</h2>
               <ul class="list-checked">
                 <li>Controles de prevención de lavado <strong>(KYC/AML)</strong> y listas restrictivas.</li>
                 <li>Verificación de identidad, segregación de funciones y trazabilidad de fondos.</li>
@@ -232,8 +242,8 @@
             </div>
             <div class="col-lg-6">
               <div class="p-4 bg-brand-soft rounded-3 border">
-                <h5 class="mb-2">Transparencia operativa</h5>
-                <p class="mb-0">Reportes en tiempo real, Conciliación automática y métricas con SLA.</p>
+                <h5 class="mb-2" id="transparencia-h5">Transparencia operativa</h5>
+                <p class="mb-0" id="transparencia-p">Reportes en tiempo real, conciliación automática y métricas con SLA.</p>
               </div>
             </div>
           </div>
@@ -245,7 +255,7 @@
         <div class="container">
           <div class="row g-4 align-items-center">
             <div class="col-lg-6">
-              <h2 class="h1 mb-3">&iquest;Quer&eacute;s integrar o visitar un local?</h2>
+              <h2 class="h1 mb-3" id="contacto-title">&iquest;Quer&eacute;s integrar o visitar un local?</h2>
               <p class="lead text-secondary">Escribinos a <a href="mailto:hola@fundraiser.com.ar" class="link-body-emphasis">hola@fundraiser.com.ar</a> o complet&aacute; el formulario y te contactamos.</p>
               <a class="btn btn-brand" href="mailto:hola@fundraiser.com.ar">Escribir ahora</a>
             </div>
@@ -285,6 +295,7 @@
     <footer class="border-top py-4 small">
       <div class="container d-flex flex-wrap gap-2 justify-content-between align-items-center">
         <div>&copy; <span id="year"></span> Fundraiser SAS — Todos los derechos reservados</div>
+
       </div>
     </footer>
 
@@ -292,6 +303,8 @@
     <script src="/script.js"></script>
   </body>
   </html>
+
+
 
 
 
