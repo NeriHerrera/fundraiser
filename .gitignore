@@ -1,0 +1,4 @@
+# Traefik ACME data (sensitive: contains private keys)
+letsencrypt/
+acme.json
+
