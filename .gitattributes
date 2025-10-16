@@ -1,28 +1,14 @@
-# Normalize line endings across platforms
+# Normalize line endings to LF for all text files
 * text=auto eol=lf
 
-# Common text formats
-*.html text eol=lf
-*.css  text eol=lf
-*.js   text eol=lf
-*.json text eol=lf
-*.md   text eol=lf
-*.yml  text eol=lf
-*.yaml text eol=lf
-*.svg  text eol=lf
+# Keep common binaries untouched (safety; text=auto already skips most)
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.webp -text
+*.ico -text
+*.pdf -text
+*.woff -text
+*.woff2 -text
 
-# Shell/Windows scripts
-*.sh   text eol=lf
-*.bat  text eol=crlf
-*.cmd  text eol=crlf
-*.ps1  text eol=crlf
-
-# Binary assets
-*.png  binary
-*.jpg  binary
-*.jpeg binary
-*.gif  binary
-*.ico  binary
-*.pdf  binary
-*.zip  binary
-*.gz   binary
