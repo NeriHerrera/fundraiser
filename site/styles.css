@@ -109,8 +109,11 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .brand-tabs .nav-link.active { color: var(--brand); border-color: var(--brand) var(--brand) transparent; }
 .brand-tab-content { border-color: #e5e7eb !important; }
 /* Tabs in one row, horizontally scrollable on small screens */
-.brand-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.brand-tabs .nav-link { white-space: nowrap; }
+.brand-tabs { flex-wrap: wrap; overflow: visible; }
+.brand-tabs .nav-link { white-space: normal; padding: .5rem .75rem; }
+/* Fit tabs without scrollbar on smaller screens */
+@media (max-width: 991.98px) { .brand-tabs .nav-link { padding: .35rem .6rem; font-size: .9rem; } }
+@media (max-width: 575.98px) { .brand-tabs .nav-link { padding: .3rem .45rem; font-size: .85rem; } }
 /* Hide footer tagline */
 footer .text-secondary { display: none !important; }
 
