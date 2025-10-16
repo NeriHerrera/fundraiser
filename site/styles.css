@@ -110,11 +110,11 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 .py-lg-6 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
 
 /* Tabs brand accent */
-.brand-tabs .nav-link { color: #6b7280; }
+.brand-tabs .nav-link { color: rgba(255,255,255,.92); }
 .brand-tabs .nav-link.active { color: var(--brand); border-color: var(--brand) var(--brand) transparent; }
 .brand-tab-content { border-color: #e5e7eb !important; }
 /* Tabs in one row, horizontally scrollable on small screens */
-.brand-tabs { flex-wrap: wrap; overflow: visible; }
+.brand-tabs { flex-wrap: wrap; overflow: visible; justify-content: center; gap: .25rem; }
 .brand-tabs .nav-link { white-space: normal; padding: .5rem .75rem; }
 /* Fit tabs without scrollbar on smaller screens */
 @media (max-width: 991.98px) { .brand-tabs .nav-link { padding: .35rem .6rem; font-size: .9rem; } }
