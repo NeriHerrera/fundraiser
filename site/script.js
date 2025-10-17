@@ -222,7 +222,25 @@ function applyI18n() {
     ['nav-item-contacto', 'navContacto']
   ];
   mapping.forEach(([id, key]) => { if ($(id) && t[key]) $(id).textContent = t[key]; });
-  const flagEl = document.getElementById('current-lang-flag'); if (flagEl) flagEl.textContent = t.flag;
+      // Update current language indicator with requested codes
+      const flagEl = document.getElementById('current-lang-flag');
+      if (flagEl) {
+        const flagMap = { es: 'ES:', en: 'US:', pt: 'BRA:' };
+        flagEl.textContent = flagMap[lang] || 'ES:';
+      }
+      // Also translate section links inside dropdown by href (no IDs needed)
+      const byHref = [
+        ['#desarrollo', 'navDesarrollo'],
+        ['#valor', 'navValor'],
+        ['#servicios', 'navServicios'],
+        ['#sectores', 'navSectores'],
+        ['#cumplimiento', 'navCumpl'],
+        ['#contacto', 'navContacto']
+      ];
+      byHref.forEach(([href, key]) => {
+        const node = document.querySelector(`a.dropdown-item[href="${href}"]`);
+        if (node && t[key]) node.textContent = t[key];
+      });
   // Hero
   if ($('hero-title')) $('hero-title').textContent = t.heroTitle;
   if ($('hero-lead')) $('hero-lead').textContent = t.heroLead;
