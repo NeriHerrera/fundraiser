@@ -25,7 +25,11 @@ const navCollapseEl = document.getElementById('navMain');
 if (navCollapseEl) {
   const links = navCollapseEl.querySelectorAll('.nav-link, .dropdown-item');
   links.forEach((lnk) => {
-    lnk.addEventListener('click', () => {
+    lnk.addEventListener('click', (e) => {
+      // No cerrar si es un toggle de dropdown (secciones/idioma en mobile)
+      if (lnk.classList.contains('dropdown-toggle') || lnk.getAttribute('data-bs-toggle') === 'dropdown') {
+        return;
+      }
       const instance = window.bootstrap?.Collapse?.getInstance?.(navCollapseEl)
         || (window.bootstrap ? new window.bootstrap.Collapse(navCollapseEl, { toggle: false }) : null);
       if (instance && navCollapseEl.classList.contains('show')) instance.hide();

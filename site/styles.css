@@ -58,7 +58,7 @@ body {
   .hero-badge {
     display: block !important;
     position: absolute;
-    top: 6px;
+    top: clamp(48px, 9vh, 88px); /* bajada a la altura del título */
     right: 12px;
     width: clamp(72px, 22vw, 110px);
     height: auto;
