@@ -37,6 +37,27 @@ if (navCollapseEl) {
   });
 }
 
+// Back-to-top button with gentle scroll speed
+(function(){
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  const easeInOutCubic = (t) => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 1, 3)/2;
+  function scrollToTop(durationMs){
+    const start = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const startTime = performance.now();
+    const animate = (now) => {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / durationMs, 1);
+      const eased = easeInOutCubic(t);
+      const y = Math.round(start * (1 - eased));
+      window.scrollTo(0, y);
+      if (elapsed < durationMs) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }
+  btn.addEventListener('click', (e)=>{ e.preventDefault(); scrollToTop(1600); });
+})();
+
 // --- Simple i18n (es/en/pt) ---
 const I18N = {
   es: {

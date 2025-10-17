@@ -207,3 +207,8 @@ footer .text-secondary, footer .text-body-secondary, footer .text-muted { color:
 
 /* Links styled as body emphasis should be light on dark */
 a.link-body-emphasis { color: #f9fafb !important; }
+
+/* Back-to-top button styling (footer, right end) */
+.btn-top { border-color: rgba(255,255,255,.55) !important; color: #ffffff !important; }
+.btn-top:hover { background: rgba(255,255,255,.12) !important; border-color: rgba(255,255,255,.85) !important; color: #fff !important; }
+.btn-top svg { display: block; }
