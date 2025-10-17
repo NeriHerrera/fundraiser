@@ -42,9 +42,7 @@ if (navCollapseEl) {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const easeInOutQuart = (t) => t < 0.5
-    ? 8*t*t*t*t
-    : 1 - Math.pow(-2*t + 2, 4) / 2;
+  const linear = (t) => t; // velocidad continua (sin easing)
 
   function smoothScrollToTop(durationMs){
     const el = document.scrollingElement || document.documentElement;
@@ -66,8 +64,7 @@ if (navCollapseEl) {
       if (cancelled) return;
       const elapsed = now - startTime;
       const t = Math.min(elapsed / durationMs, 1);
-      const eased = easeInOutQuart(t);
-      const y = Math.round(start * (1 - eased));
+      const y = Math.round(start * (1 - linear(t)));
       el.scrollTo({ top: y, left: 0, behavior: 'auto' });
       if (t < 1) requestAnimationFrame(step); else cleanup();
     };
@@ -79,7 +76,12 @@ if (navCollapseEl) {
     if (prefersReduced) {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     } else {
-      smoothScrollToTop(2200); // más suave y sin saltos
+      // Duración dinámica a velocidad media (≈ 900 px/s)
+      const el = document.scrollingElement || document.documentElement;
+      const distance = (el.scrollTop || window.pageYOffset || 0);
+      const pxPerSec = 900;
+      const duration = Math.max(900, Math.min(2800, Math.round((distance / pxPerSec) * 1000)));
+      smoothScrollToTop(duration);
     }
   });
 })();
