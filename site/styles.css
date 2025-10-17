@@ -39,7 +39,7 @@ body {
 
 /* PCI/insignia badge near hero copy */
 .hero-badge {
-  width: clamp(260px, 34vw, 460px); /* casi el doble, responsivo */
+  width: clamp(300px, 36vw, 520px); /* un poco más grande */
   max-width: 100%;
   height: auto;
   border-radius: 12px;
@@ -50,6 +50,11 @@ body {
 /* Badge placed in right column (desktop) */
 @media (min-width: 992px) {
   .hero-brand .col-lg-5 .hero-badge { margin-top: .25rem; }
+}
+
+/* Mobile-friendly placement and size */
+@media (max-width: 991.98px) {
+  .hero-badge { display: block; margin: .5rem auto 1rem auto; width: min(62vw, 240px); }
 }
 
 /* Uniform page gradient: remove section backgrounds so the gradient is continuous */
