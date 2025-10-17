@@ -38,8 +38,14 @@ body {
 .hero-wave { display: none; }
 
 /* PCI/insignia badge near hero copy */
-.hero-badge { width: clamp(180px, 22vw, 300px); height: auto; border-radius: 12px; opacity: .98;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.35)); }
+.hero-badge {
+  width: clamp(260px, 34vw, 460px); /* casi el doble, responsivo */
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  opacity: .98;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.35));
+}
 
 /* Badge placed in right column (desktop) */
 @media (min-width: 992px) {
