@@ -212,3 +212,5 @@ a.link-body-emphasis { color: #f9fafb !important; }
 .btn-top { border-color: rgba(255,255,255,.55) !important; color: #ffffff !important; }
 .btn-top:hover { background: rgba(255,255,255,.12) !important; border-color: rgba(255,255,255,.85) !important; color: #fff !important; }
 .btn-top svg { display: block; }
+.btn-top .label { display: none; }
+@media (min-width: 576px) { .btn-top .label { display: inline; } }

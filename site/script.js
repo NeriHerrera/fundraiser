@@ -41,21 +41,47 @@ if (navCollapseEl) {
 (function(){
   const btn = document.getElementById('backToTop');
   if (!btn) return;
-  const easeInOutCubic = (t) => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 1, 3)/2;
-  function scrollToTop(durationMs){
-    const start = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const easeInOutQuart = (t) => t < 0.5
+    ? 8*t*t*t*t
+    : 1 - Math.pow(-2*t + 2, 4) / 2;
+
+  function smoothScrollToTop(durationMs){
+    const el = document.scrollingElement || document.documentElement;
+    const start = el.scrollTop || window.pageYOffset || 0;
+    if (start <= 0) return;
     const startTime = performance.now();
-    const animate = (now) => {
+    let cancelled = false;
+    const cancel = () => { cancelled = true; cleanup(); };
+    const cleanup = () => {
+      window.removeEventListener('wheel', cancel, { passive: true });
+      window.removeEventListener('touchstart', cancel, { passive: true });
+      window.removeEventListener('keydown', cancel, { passive: true });
+    };
+    window.addEventListener('wheel', cancel, { passive: true });
+    window.addEventListener('touchstart', cancel, { passive: true });
+    window.addEventListener('keydown', cancel, { passive: true });
+
+    const step = (now) => {
+      if (cancelled) return;
       const elapsed = now - startTime;
       const t = Math.min(elapsed / durationMs, 1);
-      const eased = easeInOutCubic(t);
+      const eased = easeInOutQuart(t);
       const y = Math.round(start * (1 - eased));
-      window.scrollTo(0, y);
-      if (elapsed < durationMs) requestAnimationFrame(animate);
+      el.scrollTo({ top: y, left: 0, behavior: 'auto' });
+      if (t < 1) requestAnimationFrame(step); else cleanup();
     };
-    requestAnimationFrame(animate);
+    requestAnimationFrame(step);
   }
-  btn.addEventListener('click', (e)=>{ e.preventDefault(); scrollToTop(1600); });
+
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    if (prefersReduced) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    } else {
+      smoothScrollToTop(2200); // más suave y sin saltos
+    }
+  });
 })();
 
 // --- Simple i18n (es/en/pt) ---
