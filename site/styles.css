@@ -52,9 +52,9 @@ body {
   .hero-brand .col-lg-5 .hero-badge { margin-top: .25rem; }
 }
 
-/* Mobile-friendly placement and size */
+/* Mobile: ocultar insignia para mantener limpieza y evitar solapado */
 @media (max-width: 991.98px) {
-  .hero-badge { display: block; margin: .5rem auto 1rem auto; width: min(62vw, 240px); }
+  .hero-badge { display: none !important; }
 }
 
 /* Uniform page gradient: remove section backgrounds so the gradient is continuous */
