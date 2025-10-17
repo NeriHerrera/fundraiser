@@ -42,6 +42,23 @@ body {
   filter: drop-shadow(0 10px 22px rgba(0,0,0,.35)); }
 @media (min-width: 1400px) { .hero-badge { width: 190px; } }
 
+/* Layout: badge to the right of title + lead (desktop) */
+@media (min-width: 992px) {
+  .hero-brand .col-lg-7 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-auto-rows: auto;
+    column-gap: 1rem;
+    row-gap: .5rem;
+    align-items: start;
+  }
+  #hero-title { grid-column: 1; grid-row: 1; }
+  #hero-lead { grid-column: 1; grid-row: 2; }
+  .hero-badge { grid-column: 2; grid-row: 1 / span 2; align-self: start; justify-self: end; float: none !important; margin: 0 !important; }
+  /* CTA row goes below both columns */
+  .hero-brand .col-lg-7 > .d-flex.gap-3 { grid-column: 1 / -1; grid-row: 3; }
+}
+
 /* Uniform page gradient: remove section backgrounds so the gradient is continuous */
 section.bg-white,
 section.bg-light { background: transparent !important; }
