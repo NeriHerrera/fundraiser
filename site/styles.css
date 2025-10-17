@@ -52,9 +52,21 @@ body {
   .hero-brand .col-lg-5 .hero-badge { margin-top: .25rem; }
 }
 
-/* Mobile: ocultar insignia para mantener limpieza y evitar solapado */
+/* Mobile: mostrar insignia a la derecha del título sin superponer */
 @media (max-width: 991.98px) {
-  .hero-badge { display: none !important; }
+  .hero-brand { position: relative; }
+  .hero-badge {
+    display: block !important;
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    width: clamp(72px, 22vw, 110px);
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+  }
+  /* Reservar espacio a la derecha para que el texto no se monte sobre la insignia */
+  #hero-title, #hero-lead { padding-right: clamp(84px, 26vw, 140px); }
 }
 
 /* Uniform page gradient: remove section backgrounds so the gradient is continuous */
