@@ -202,6 +202,47 @@ const I18N = {
   }
 };
 
+// Extend with additional keys to cover all visible texts
+const I18N_EXTRA = {
+  es: {
+    ctaWriteNow: 'Escribir ahora',
+    heroCert: 'Habilitados y certificados PCI DSS.',
+    sectoresBadges: [
+      'Gobiernos y entes recaudadores',
+      'Utilities y telcos',
+      'Retail y supermercados',
+      'Transportadoras de caudales',
+      'Clubes, cámaras y asociaciones',
+      'E-commerce y SaaS'
+    ]
+  },
+  en: {
+    ctaWriteNow: 'Write now',
+    heroCert: 'PCI DSS certified and authorized.',
+    sectoresBadges: [
+      'Governments and tax agencies',
+      'Utilities and telcos',
+      'Retail and supermarkets',
+      'Cash-in-transit companies',
+      'Clubs, chambers and associations',
+      'E-commerce and SaaS'
+    ]
+  },
+  pt: {
+    ctaWriteNow: 'Escrever agora',
+    heroCert: 'Habilitados e certificados PCI DSS.',
+    sectoresBadges: [
+      'Governos e órgãos arrecadadores',
+      'Utilities e telecom',
+      'Varejo e supermercados',
+      'Transportadoras de valores',
+      'Clubes, câmaras e associações',
+      'E-commerce e SaaS'
+    ]
+  }
+};
+['es','en','pt'].forEach((lng)=>{ if (I18N[lng]) Object.assign(I18N[lng], I18N_EXTRA[lng]); });
+
 function applyI18n() {
   const lang = localStorage.getItem('lang') || 'es';
   const t = I18N[lang] || I18N.es;
@@ -244,6 +285,9 @@ function applyI18n() {
   // Hero
   if ($('hero-title')) $('hero-title').textContent = t.heroTitle;
   if ($('hero-lead')) $('hero-lead').textContent = t.heroLead;
+  // Hero certification note just beneath the title
+  const heroCert = document.querySelector('.hero-brand p.small');
+  if (heroCert && t.heroCert) heroCert.textContent = t.heroCert;
   const statTitles = document.querySelectorAll('.hero-stats .stat-title');
   const statDescs  = document.querySelectorAll('.hero-stats .stat-desc');
   const sT = [t.stat1Title, t.stat2Title, t.stat3Title];
@@ -265,6 +309,8 @@ function applyI18n() {
   // Sectores
   if ($('sectores-h2')) $('sectores-h2').textContent = t.sectoresH2;
   if ($('sectores-p')) $('sectores-p').textContent = t.sectoresP;
+  const badges = document.querySelectorAll('#sectores .badge');
+  if (badges && t.sectoresBadges) badges.forEach((b, i) => { if (t.sectoresBadges[i]) b.textContent = t.sectoresBadges[i]; });
   // Cumplimiento
   if ($('cumpl-h2')) $('cumpl-h2').textContent = t.cumplH2;
   const cumplLis = document.querySelectorAll('#cumplimiento .list-checked li');
@@ -274,11 +320,17 @@ function applyI18n() {
   // Contacto
   if ($('contacto-title')) $('contacto-title').textContent = t.contactoH2;
   if ($('contacto-lead')) $('contacto-lead').innerHTML = t.contactoLead;
+  else {
+    const leadEl = document.querySelector('#contacto .lead.text-secondary');
+    if (leadEl && t.contactoLead) leadEl.innerHTML = t.contactoLead;
+  }
   const labels = [ ['nombre','labelNombre'], ['email','labelEmail'], ['empresa','labelEmpresa'], ['mensaje','labelMensaje'] ];
   labels.forEach(([forId,key])=>{ const node = document.querySelector(`label[for="${forId}"]`); if (node && t[key]) node.textContent = t[key]; });
   const ph = [ ['nombre','phNombre'], ['email','phEmail'], ['empresa','phEmpresa'], ['mensaje','phMensaje'] ];
   ph.forEach(([id,key])=>{ const inp = document.getElementById(id); if (inp && t[key]) inp.setAttribute('placeholder', t[key]); });
   const btn = document.getElementById('ctaFooter'); if (btn && t.ctaEnviar) btn.textContent = t.ctaEnviar;
+  const writeNow = document.querySelector('#contacto a.btn.btn-brand[href^="mailto:"]');
+  if (writeNow && t.ctaWriteNow) writeNow.textContent = t.ctaWriteNow;
   // Footer copy
   const copy = document.querySelector('footer .container div');
   if (copy && t.footerCopy) copy.textContent = t.footerCopy.replace('{year}', new Date().getFullYear());
