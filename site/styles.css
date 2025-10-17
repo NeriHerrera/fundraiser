@@ -58,18 +58,18 @@ body {
   .hero-badge {
     display: block !important;
     position: absolute;
-    top: clamp(128px, 16vh, 188px); /* más abajo para mejor balance visual */
+    top: clamp(148px, 18vh, 220px); /* aún más abajo para mejor balance visual */
     right: 12px;
-    width: clamp(90px, 28vw, 150px); /* un poco más grande en mobile */
+    width: clamp(100px, 32vw, 180px); /* un poco más grande en mobile */
     height: auto;
     z-index: 2;
     pointer-events: none;
   }
   /* Reservar espacio a la derecha para que el texto no se monte sobre la insignia */
-  #hero-title, #hero-lead { padding-right: clamp(108px, 34vw, 180px); }
+  #hero-title, #hero-lead { padding-right: clamp(128px, 36vw, 200px); }
   /* Subir el bloque de texto: reducir padding superior manteniendo seguridad bajo navbar */
-  .hero-brand .container { padding-top: 9.5rem !important; }
-  .hero-brand .container { padding-top: calc(9.5rem + env(safe-area-inset-top)) !important; }
+  .hero-brand .container { padding-top: 9rem !important; }
+  .hero-brand .container { padding-top: calc(9rem + env(safe-area-inset-top)) !important; }
 }
 
 /* Uniform page gradient: remove section backgrounds so the gradient is continuous */
