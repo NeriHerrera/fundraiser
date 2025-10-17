@@ -67,6 +67,8 @@ body {
   }
   /* Reservar espacio a la derecha para que el texto no se monte sobre la insignia */
   #hero-title, #hero-lead { padding-right: clamp(84px, 26vw, 140px); }
+  /* Más espacio superior en mobile para que no se superponga con la navbar */
+  .hero-brand .container { padding-top: 11.5rem !important; }
 }
 
 /* Uniform page gradient: remove section backgrounds so the gradient is continuous */
