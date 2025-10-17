@@ -241,7 +241,72 @@ const I18N_EXTRA = {
     ]
   }
 };
-['es','en','pt'].forEach((lng)=>{ if (I18N[lng]) Object.assign(I18N[lng], I18N_EXTRA[lng]); });
+    ['es','en','pt'].forEach((lng)=>{ if (I18N[lng]) Object.assign(I18N[lng], I18N_EXTRA[lng]); });
+
+    // Additional translations to reach full coverage
+    const I18N_EXTRA2 = {
+      es: {
+        heroCtaWrite: 'Escribir a {email}',
+        heroCtaForm: 'Completar formulario',
+        valorH2: 'Propuesta de valor',
+        valorLead: 'Integramos canales físicos y digitales para cobrar, conciliar y reportar con velocidad y precisión.',
+        valorCardsTitles: [
+          'Plataforma propia interoperable',
+          'Operación omnicanal',
+          'KYC/AML y antifraude',
+          'Reportes en tiempo real',
+          'Alta volumetría y efectivo'
+        ],
+        valorCardsTexts: [
+          'APIs, archivos, WhatsApp y redes para integraciones rápidas y robustas.',
+          'Online + locales físicos para recaudo con efectivo y medios digitales.',
+          'Cumplimiento normativo, listas restrictivas y verificación de identidad.',
+          'Conciliación automática y saldos claros con métricas operativas.',
+          'Equipo con experiencia en operaciones masivas y manejo de efectivo.'
+        ]
+      },
+      en: {
+        heroCtaWrite: 'Write to {email}',
+        heroCtaForm: 'Fill in the form',
+        valorH2: 'Value Proposition',
+        valorLead: 'We integrate physical and digital channels to collect, reconcile, and report quickly and accurately.',
+        valorCardsTitles: [
+          'In-house interoperable platform',
+          'Omnichannel operation',
+          'KYC/AML and anti-fraud',
+          'Real-time reporting',
+          'High volume and cash'
+        ],
+        valorCardsTexts: [
+          'APIs, files, WhatsApp and social networks for fast, robust integrations.',
+          'Online + physical points for cash collection and digital payments.',
+          'Regulatory compliance, watchlists and identity verification.',
+          'Automatic reconciliation and clear balances with operational metrics.',
+          'Experienced team for large-scale operations and cash handling.'
+        ]
+      },
+      pt: {
+        heroCtaWrite: 'Escrever para {email}',
+        heroCtaForm: 'Preencher formulário',
+        valorH2: 'Proposta de valor',
+        valorLead: 'Integramos canais físicos e digitais para cobrar, conciliar e reportar com rapidez e precisão.',
+        valorCardsTitles: [
+          'Plataforma própria interoperável',
+          'Operação omnichannel',
+          'KYC/AML e antifraude',
+          'Relatórios em tempo real',
+          'Alto volume e numerário'
+        ],
+        valorCardsTexts: [
+          'APIs, arquivos, WhatsApp e redes sociais para integrações rápidas e robustas.',
+          'Online + lojas físicas para arrecadação em dinheiro e meios digitais.',
+          'Conformidade regulatória, listas restritivas e verificação de identidade.',
+          'Conciliação automática e saldos claros com métricas operacionais.',
+          'Equipe experiente em operações de grande escala e manuseio de numerário.'
+        ]
+      }
+    };
+    ['es','en','pt'].forEach((lng)=>{ if (I18N[lng]) Object.assign(I18N[lng], I18N_EXTRA2[lng]); });
 
 function applyI18n() {
   const lang = localStorage.getItem('lang') || 'es';
@@ -265,13 +330,19 @@ function applyI18n() {
   mapping.forEach(([id, key]) => { if ($(id) && t[key]) $(id).textContent = t[key]; });
       // Update current language indicator with requested codes
       const flagEl = document.getElementById('current-lang-flag');
-      if (flagEl) {
-        const flagMap = { es: 'ES:', en: 'US:', pt: 'BRA:' };
-        flagEl.textContent = flagMap[lang] || 'ES:';
-      }
-      // Also translate section links inside dropdown by href (no IDs needed)
-      const byHref = [
-        ['#desarrollo', 'navDesarrollo'],
+          if (flagEl) {
+            const flagMap = { es: 'ES:', en: 'US:', pt: 'BRA:' };
+            flagEl.textContent = flagMap[lang] || 'ES:';
+          }
+          // Language dropdown labels
+          document.querySelectorAll('.lang-select').forEach((a)=>{
+            const dl = a.getAttribute('data-lang');
+            const labelMap = { es: 'ES: Español', en: 'US: English', pt: 'BRA: Português' };
+            if (labelMap[dl]) a.textContent = labelMap[dl];
+          });
+          // Also translate section links inside dropdown by href (no IDs needed)
+          const byHref = [
+            ['#desarrollo', 'navDesarrollo'],
         ['#valor', 'navValor'],
         ['#servicios', 'navServicios'],
         ['#sectores', 'navSectores'],
@@ -282,12 +353,22 @@ function applyI18n() {
         const node = document.querySelector(`a.dropdown-item[href="${href}"]`);
         if (node && t[key]) node.textContent = t[key];
       });
-  // Hero
-  if ($('hero-title')) $('hero-title').textContent = t.heroTitle;
-  if ($('hero-lead')) $('hero-lead').textContent = t.heroLead;
-  // Hero certification note just beneath the title
-  const heroCert = document.querySelector('.hero-brand p.small');
-  if (heroCert && t.heroCert) heroCert.textContent = t.heroCert;
+      // Hero
+      if ($('hero-title')) $('hero-title').textContent = t.heroTitle;
+      if ($('hero-lead')) $('hero-lead').textContent = t.heroLead;
+      // Hero certification note just beneath the title
+      const heroCert = document.querySelector('.hero-brand p.small');
+      if (heroCert && t.heroCert) heroCert.textContent = t.heroCert;
+      // Hero CTAs
+      const heroMail = document.querySelector('.hero-brand a.btn.btn-light[href^="mailto:"]');
+      if (heroMail && t.heroCtaWrite) {
+        const href = heroMail.getAttribute('href') || '';
+        const m = href.match(/mailto:([^?]+)/);
+        const email = m ? m[1] : 'hola@fundraiser.com.ar';
+        heroMail.textContent = t.heroCtaWrite.replace('{email}', email);
+      }
+      const heroForm = document.querySelector('.hero-brand a.btn.btn-outline-light[href="#contacto"]');
+      if (heroForm && t.heroCtaForm) heroForm.textContent = t.heroCtaForm;
   const statTitles = document.querySelectorAll('.hero-stats .stat-title');
   const statDescs  = document.querySelectorAll('.hero-stats .stat-desc');
   const sT = [t.stat1Title, t.stat2Title, t.stat3Title];
@@ -302,10 +383,20 @@ function applyI18n() {
   if ($('p-remesas')) $('p-remesas').textContent = t.pRemesas;
   if ($('p-outsourcing')) $('p-outsourcing').innerHTML = t.pOutsourcing;
   if ($('p-recuento')) $('p-recuento').textContent = t.pRecuento;
-  // Desarrollo
-  if ($('desarrollo-h2')) $('desarrollo-h2').textContent = t.desH2;
-  if ($('desarrollo-h5')) $('desarrollo-h5').textContent = t.desH5;
-  if ($('desarrollo-p')) $('desarrollo-p').textContent = t.desP;
+      // Desarrollo
+      if ($('desarrollo-h2')) $('desarrollo-h2').textContent = t.desH2;
+      if ($('desarrollo-h5')) $('desarrollo-h5').textContent = t.desH5;
+      if ($('desarrollo-p')) $('desarrollo-p').textContent = t.desP;
+      // Propuesta de valor
+      const secValor = document.getElementById('valor');
+      if (secValor) {
+        const h2v = secValor.querySelector('h2.h1'); if (h2v && t.valorH2) h2v.textContent = t.valorH2;
+        const lv = secValor.querySelector('p.text-secondary'); if (lv && t.valorLead) lv.textContent = t.valorLead;
+        const vTitles = secValor.querySelectorAll('.card .card-title');
+        const vTexts  = secValor.querySelectorAll('.card .card-text');
+        if (vTitles && t.valorCardsTitles) vTitles.forEach((n,i)=>{ if (t.valorCardsTitles[i]) n.textContent = t.valorCardsTitles[i]; });
+        if (vTexts && t.valorCardsTexts)  vTexts.forEach((n,i)=>{ if (t.valorCardsTexts[i])  n.textContent = t.valorCardsTexts[i];  });
+      }
   // Sectores
   if ($('sectores-h2')) $('sectores-h2').textContent = t.sectoresH2;
   if ($('sectores-p')) $('sectores-p').textContent = t.sectoresP;
