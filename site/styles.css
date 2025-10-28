@@ -71,6 +71,9 @@ body {
   /* Subir el bloque de texto: reducir padding superior manteniendo seguridad bajo navbar */
   .hero-brand .container { padding-top: 9rem !important; }
   .hero-brand .container { padding-top: calc(9rem + env(safe-area-inset-top)) !important; }
+  /* Center hero texts and CTAs on small screens */
+  .hero-brand .col-lg-7 { text-align: center; }
+  .hero-brand .d-flex.gap-3 { justify-content: center; }
 }
 
 /* Uniform page gradient: remove section backgrounds so the gradient is continuous */
@@ -97,6 +100,10 @@ footer { border-top: 1px solid rgba(255,255,255,0.15) !important; }
 }
 .hero-stats .stat-title { font-weight: 700; }
 .hero-stats .stat-desc { opacity: .9; font-size: .9rem; }
+/* Center stat cards text by default on mobile */
+@media (max-width: 991.98px) {
+  .hero-stats .stat-card { text-align: center; }
+}
 
 /* Lists */
 .list-checked { list-style: none; padding-left: 0; margin: 0; }
@@ -215,3 +222,10 @@ a.link-body-emphasis { color: #f9fafb !important; }
 .btn-top svg { display: block; }
 .btn-top .label { display: none; }
 @media (min-width: 576px) { .btn-top .label { display: inline; } }
+
+/* Center key section headings on small screens for better readability */
+@media (max-width: 991.98px) {
+  #valor h2.h1, #servicios h2.h1, #sectores h2.h1, #cumplimiento h2.h1, #contacto h2.h1 { text-align: center; }
+  #valor p.text-secondary, #sectores p.text-secondary, #contacto .lead { text-align: center; }
+  #contacto .card-footer { justify-content: center !important; }
+}
