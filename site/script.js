@@ -301,6 +301,7 @@ const I18N_EXTRA = {
       es: {
         heroCtaWrite: 'Escribir a {email}',
         heroCtaForm: 'Completar formulario',
+        heroGateway: 'Pasarela de pagos para E-commerces. Ofrecemos un sistema de cobranza para integraci\u00F3n por cuenta y orden para empresas nacionales y extranjeras. Con nuestra pasarela procesas pagos con tarjetas de debito, credito, prepagas y QR Code.',
         valorH2: 'Propuesta de valor',
         valorLead: 'Integramos canales físicos y digitales para cobrar, conciliar y reportar con velocidad y precisión.',
         valorCardsTitles: [
@@ -321,6 +322,7 @@ const I18N_EXTRA = {
       en: {
         heroCtaWrite: 'Write to {email}',
         heroCtaForm: 'Fill in the form',
+        heroGateway: 'Payment gateway for e-commerce. We offer a collection system for account-and-order integration for domestic and foreign companies. With our gateway you process payments with debit, credit, prepaid cards and QR Code.',
         valorH2: 'Value Proposition',
         valorLead: 'We integrate physical and digital channels to collect, reconcile, and report quickly and accurately.',
         valorCardsTitles: [
@@ -340,6 +342,7 @@ const I18N_EXTRA = {
       },
       pt: {
         heroCtaWrite: 'Escrever para {email}',
+        heroGateway: 'Gateway de pagamento para e-commerce. Oferecemos um sistema de cobran\u00E7a para integra\u00E7\u00E3o por conta e ordem para empresas nacionais e estrangeiras. Com nosso gateway voc\u00EA processa pagamentos com cart\u00F5es de d\u00E9bito, cr\u00E9dito, pr\u00E9-pagos e QR Code.',
         heroCtaForm: 'Preencher formulário',
         valorH2: 'Proposta de valor',
         valorLead: 'Integramos canais físicos e digitais para cobrar, conciliar e reportar com rapidez e precisão.',
@@ -422,6 +425,9 @@ function applyI18n() {
       }
       const heroForm = document.querySelector('.hero-brand a.btn.btn-outline-light[href="#contacto"]');
       if (heroForm && t.heroCtaForm) heroForm.textContent = t.heroCtaForm;
+      // Hero wide card text (full-width rectangle)
+      const heroGateway = document.querySelector('.hero-brand .hero-stats p.mb-0');
+      if (heroGateway && t.heroGateway) heroGateway.textContent = t.heroGateway;
   const statTitles = document.querySelectorAll('.hero-stats .stat-title');
   const statDescs  = document.querySelectorAll('.hero-stats .stat-desc');
   const sT = [t.stat1Title, t.stat2Title, t.stat3Title];
