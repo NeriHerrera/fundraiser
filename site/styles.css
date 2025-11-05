@@ -80,6 +80,36 @@ body {
 /* Evitar salto de línea entre brand, teléfono y toggler en mobile */
 .navbar > .container, .navbar > .container-fluid { flex-wrap: nowrap; }
 
+/* Mobile: cuando se despliega el menú, que ocupe una nueva línea, con márgenes y tamaño contenido */
+@media (max-width: 991.98px) {
+  .navbar > .container, .navbar > .container-fluid { flex-wrap: wrap; }
+  .navbar .navbar-collapse { flex-basis: 100%; width: 100%; margin-top: .5rem; }
+  .navbar .navbar-collapse.show {
+    background: rgba(17,24,39,.96); /* gris muy oscuro */
+    border-radius: 12px;
+    padding: .5rem .75rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,.35);
+    max-height: calc(100vh - 6rem); /* no se expanda de más */
+    overflow: auto; /* scroll interno si hace falta */
+  }
+  /* Dropdowns dentro del panel: estáticos y de ancho completo */
+  .navbar .dropdown-menu {
+    position: static;
+    float: none;
+    display: block;
+    margin: .25rem 0 0 0;
+    width: 100%;
+    background: transparent; /* hereda el panel oscuro */
+    border: 0;
+    border-radius: 8px;
+    padding: 0;
+  }
+  .navbar .dropdown-item { color: #fff; border-radius: 6px; }
+  .navbar .dropdown-item:hover { background: rgba(255,255,255,.08); color: #fff; }
+  /* Mantener el tamaño de los ítems consistente con Secciones */
+  .navbar .nav-link, .navbar .dropdown-item { font-size: var(--nav-item-size); }
+}
+
 @media (max-width: 575.98px) {
   .nav-contact { font-size: var(--nav-item-size); gap: .375rem; }
 }
