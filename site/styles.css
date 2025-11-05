@@ -54,6 +54,7 @@ body {
 .navbar { align-items: center; }
 .navbar > .container, .navbar > .container-fluid { display: flex; align-items: center; }
 .navbar .navbar-brand { display: inline-flex; align-items: center; }
+.navbar .navbar-brand img { margin-top: -4px; }
 .navbar .navbar-collapse { display: flex; align-items: center; }
 
 .navbar .navbar-nav { align-items: center; }
