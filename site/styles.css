@@ -63,11 +63,21 @@ body {
 .nav-contact .nav-phone-icon { width: 1em; height: 1em; fill: currentColor; }
 .nav-contact .nav-phone-number { font-size: 1em; color: inherit; }
 
+/* Unificar tamaño entre Secciones, Idioma y Teléfono tomando Secciones como referencia */
+.navbar { --nav-item-size: 1rem; }
+.navbar .nav-link { font-size: var(--nav-item-size); }
+.navbar .nav-contact { font-size: var(--nav-item-size); }
+
+/* En XS mantener mismo tamaño que Secciones (sin reducir) */
+@media (max-width: 575.98px) {
+  .nav-contact { font-size: var(--nav-item-size); gap: .375rem; }
+}
+
 /* Evitar salto de línea entre brand, teléfono y toggler en mobile */
 .navbar > .container, .navbar > .container-fluid { flex-wrap: nowrap; }
 
 @media (max-width: 575.98px) {
-  .nav-contact { font-size: .72rem; gap: .25rem; }
+  .nav-contact { font-size: var(--nav-item-size); gap: .375rem; }
 }
 
 /* Hero */
