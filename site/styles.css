@@ -27,6 +27,11 @@ body {
   --bs-btn-focus-shadow-rgb: 230,54,59;
 }
 
+/* Navbar contact (phone) */
+.nav-contact { display: inline-flex; align-items: center; gap: .375rem; }
+.nav-contact .nav-phone-icon { width: 1rem; height: 1rem; fill: #fff; display: inline-block; }
+.nav-contact .nav-phone-number { font-size: .8rem; color: var(--brand); line-height: 1; }
+
 /* Hero */
 .hero-brand { background: transparent; }
 .hero-brand .opacity-90 { opacity: .9; }
