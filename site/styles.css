@@ -50,6 +50,13 @@ body {
   line-height: 1;
 }
 
+/* Navbar alignment: center elements on Y axis */
+.navbar { align-items: center; }
+.navbar > .container, .navbar > .container-fluid { display: flex; align-items: center; }
+.navbar .navbar-brand { display: inline-flex; align-items: center; }
+.navbar .navbar-collapse { display: flex; align-items: center; }
+.navbar .navbar-nav { align-items: center; }
+
 /* Hero */
 .hero-brand { background: transparent; }
 .hero-brand .opacity-90 { opacity: .9; }
