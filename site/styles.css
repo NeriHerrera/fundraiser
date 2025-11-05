@@ -55,7 +55,13 @@ body {
 .navbar > .container, .navbar > .container-fluid { display: flex; align-items: center; }
 .navbar .navbar-brand { display: inline-flex; align-items: center; }
 .navbar .navbar-collapse { display: flex; align-items: center; }
+
 .navbar .navbar-nav { align-items: center; }
+
+/* Navbar phone tweaks: same size as text, never bigger than logo; keep on one line and centered in Y */
+.nav-contact { font-size: .8rem; height: 40px; white-space: nowrap; color: #fff; }
+.nav-contact .nav-phone-icon { width: 1em; height: 1em; fill: currentColor; }
+.nav-contact .nav-phone-number { font-size: 1em; color: inherit; }
 
 /* Hero */
 .hero-brand { background: transparent; }
