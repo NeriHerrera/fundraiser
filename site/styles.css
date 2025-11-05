@@ -39,13 +39,13 @@ body {
 }
 .nav-contact:hover { color: #fff; opacity: .9; }
 .nav-contact .nav-phone-icon {
-  width: 1em; /* igual al tamaño del texto */
-  height: 1em;
+  width: 1.2em; /* igual al tamaño del texto */
+  height: 1.2em;
   fill: currentColor; /* blanco (hereda de .nav-contact) */
   display: inline-block;
 }
 .nav-contact .nav-phone-number {
-  font-size: 1em; /* igual al icono */
+  font-size: 1.2em; /* igual al icono */
   color: inherit; /* blanco */
   line-height: 1;
 }
