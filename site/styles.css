@@ -307,6 +307,14 @@ a.link-body-emphasis { color: #f9fafb !important; }
 #contacto a.link-body-emphasis:focus {
   color: var(--brand) !important;
 }
+/* En el rótulo de aceptación, mantener siempre rojo el enlace */
+#label-terminos a.link-body-emphasis {
+  color: var(--brand) !important;
+}
+#label-terminos a.link-body-emphasis:hover,
+#label-terminos a.link-body-emphasis:focus {
+  color: var(--brand-dark) !important;
+}
 
 /* Back-to-top button styling (footer, right end) */
 .btn-top { border-color: rgba(255,255,255,.55) !important; color: #ffffff !important; }
