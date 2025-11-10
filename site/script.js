@@ -99,6 +99,8 @@ const I18N = {
     navCumpl: 'Cumplimiento',
     navTerminos: 'Términos y condiciones',
     navContacto: 'Contacto',
+    termsTitle: 'Términos y condiciones',
+    termsClose: 'Cerrar y volver',
     heroTitle: 'Cobranza, pagos y tecnolog\u00EDa para organizaciones de alta volumetr\u00EDa',
     heroLead: 'Somos una sociedad argentina especializada en soluciones de punta a punta: plataforma multisistemas, locales a la calle, pasarelas de pago con checkout para e-commerce y equipos expertos. Trazabilidad, seguridad y cumplimiento normativo en cada operaci\u00F3n.',
     stat1Title: 'Cobranza omnicanal',
@@ -155,6 +157,8 @@ const I18N = {
     navCumpl: 'Compliance',
     navTerminos: 'Terms & Conditions',
     navContacto: 'Contact',
+    termsTitle: 'Terms & Conditions',
+    termsClose: 'Close and return',
     heroTitle: 'Collections, payments, and technology for high\u2011volume organizations',
     heroLead: 'We are an Argentine company specialized in end\u2011to\u2011end solutions: multi\u2011system platform, storefront locations, payment gateways with checkout, and expert teams. Traceability, security, and regulatory compliance in every operation.',
     stat1Title: 'Omnichannel collections',
@@ -211,6 +215,8 @@ const I18N = {
     navCumpl: 'Conformidade',
     navTerminos: 'Termos e condições',
     navContacto: 'Contato',
+    termsTitle: 'Termos e condições',
+    termsClose: 'Fechar e voltar',
     heroTitle: 'Cobran\u00E7a, pagamentos e tecnologia para organiza\u00E7\u00F5es de alto volume',
     heroLead: 'Somos uma empresa argentina especializada em solu\u00E7\u00F5es ponta\u2011a\u2011ponta: plataforma multisistemas, lojas f\u00EDsicas, gateways de pagamento com checkout e equipes especialistas. Rastreabilidade, seguran\u00E7a e conformidade regulat\u00F3ria em cada opera\u00E7\u00E3o.',
     stat1Title: 'Cobran\u00E7a omnichannel',
@@ -489,6 +495,14 @@ function applyI18n() {
   // Footer copy
   const copy = document.querySelector('footer .container div');
   if (copy && t.footerCopy) copy.textContent = t.footerCopy.replace('{year}', new Date().getFullYear());
+  // Terms standalone page
+  const termsTitle = document.getElementById('terms-title');
+  if (termsTitle && t.termsTitle) termsTitle.textContent = t.termsTitle;
+  const termsClose = document.querySelector('.terms-close');
+  if (termsClose && t.termsClose) {
+    termsClose.setAttribute('title', t.termsClose);
+    termsClose.setAttribute('aria-label', t.termsClose);
+  }
 }
 
 function setLang(lang){ localStorage.setItem('lang', lang); applyI18n(); }
