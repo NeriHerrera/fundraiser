@@ -302,6 +302,11 @@ footer .text-secondary, footer .text-body-secondary, footer .text-muted { color:
 
 /* Links styled as body emphasis should be light on dark */
 a.link-body-emphasis { color: #f9fafb !important; }
+/* En la sección de contacto, los enlaces pasan a rojo al hover */
+#contacto a.link-body-emphasis:hover,
+#contacto a.link-body-emphasis:focus {
+  color: var(--brand) !important;
+}
 
 /* Back-to-top button styling (footer, right end) */
 .btn-top { border-color: rgba(255,255,255,.55) !important; color: #ffffff !important; }
