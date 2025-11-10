@@ -6,6 +6,12 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 const form = document.getElementById('formContacto');
 if (form) {
   form.addEventListener('submit', (e) => {
+    // Validación nativa (incluye checkbox de términos requerido)
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      form.classList.add('was-validated');
+      return;
+    }
     e.preventDefault();
     const nombre = document.getElementById('nombre')?.value?.trim() || '';
     const email = document.getElementById('email')?.value?.trim() || '';
@@ -503,6 +509,18 @@ function applyI18n() {
     termsClose.setAttribute('title', t.termsClose);
     termsClose.setAttribute('aria-label', t.termsClose);
   }
+  // Terms accept label in contact form
+  const lbl = document.getElementById('label-terminos');
+  if (lbl && t.termsTitle) {
+    const linkText = t.termsTitle || 'Términos y condiciones';
+    const phraseMap = {
+      es: `He leído y acepto los <a href="#terminos" class="link-body-emphasis">${linkText}</a>.`,
+      en: `I have read and accept the <a href="#terminos" class="link-body-emphasis">${linkText}</a>.`,
+      pt: `Li e aceito os <a href="#terminos" class="link-body-emphasis">${linkText}</a>.`
+    };
+    const lang = document.documentElement.lang || 'es';
+    lbl.innerHTML = phraseMap[lang] || phraseMap.es;
+  }
 }
 
 function setLang(lang){ localStorage.setItem('lang', lang); applyI18n(); }
@@ -512,3 +530,14 @@ document.querySelectorAll('.lang-select').forEach(a => {
 });
 
 applyI18n();
+
+// Bloquear scroll del fondo cuando el overlay de términos (#terminos) está abierto en index
+(function(){
+  function updateTermsState(){
+    const open = (window.location.hash === '#terminos');
+    document.documentElement.classList.toggle('terms-open', open);
+    document.body.classList.toggle('terms-open', open);
+  }
+  window.addEventListener('hashchange', updateTermsState);
+  updateTermsState();
+})();

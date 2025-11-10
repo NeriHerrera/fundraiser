@@ -317,6 +317,40 @@ a.link-body-emphasis { color: #f9fafb !important; }
   #contacto .card-footer { justify-content: center !important; }
 }
 
+.tc-check {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border: 2px solid var(--brand);
+  border-radius: 4px;
+  background: #fff;
+  display: inline-block;
+  position: relative;
+  margin-top: .1rem;
+}
+.tc-check:checked {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.tc-check:checked::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: #fff;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M13.485 1.929 6 9.414 2.515 5.929l-1.414 1.414L6 12.243l9.9-9.9-1.414-1.414z"/></svg>') center/14px 14px no-repeat;
+          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M13.485 1.929 6 9.414 2.515 5.929l-1.414 1.414L6 12.243l9.9-9.9-1.414-1.414z"/></svg>') center/14px 14px no-repeat;
+}
+
+/* Overlay de términos para index */
+#terminos.terms-screen {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1050;
+  background: linear-gradient(to bottom, #E6363B 0%, #4B5563 55%, #000000 100%);
+  color: #fff;
+  overflow-y: auto;
+}
+#terminos.terms-screen:target { display: block; }
 .terms-close {
   position: fixed;
   top: 16px;
