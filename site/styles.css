@@ -316,3 +316,27 @@ a.link-body-emphasis { color: #f9fafb !important; }
   #valor p.text-secondary, #sectores p.text-secondary, #contacto .lead { text-align: center; }
   #contacto .card-footer { justify-content: center !important; }
 }
+
+/* Fullscreen Terms screen (same gradient as main) */
+#terminos.terms-screen {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1050; /* above navbar */
+  background: linear-gradient(to bottom, #E6363B 0%, #4B5563 55%, #000000 100%);
+  color: #fff;
+  overflow-y: auto;
+}
+#terminos.terms-screen:target { display: block; }
+.terms-close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  font-size: 32px;
+  line-height: 1;
+  color: #fff;
+  text-decoration: none;
+  opacity: .9;
+}
+.terms-close:hover { opacity: 1; }
+html.terms-open, body.terms-open { overflow: hidden; }

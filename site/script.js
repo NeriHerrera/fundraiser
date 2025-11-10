@@ -97,6 +97,7 @@ const I18N = {
     navServicios: 'Servicios',
     navSectores: 'Sectores',
     navCumpl: 'Cumplimiento',
+    navTerminos: 'Términos y condiciones',
     navContacto: 'Contacto',
     heroTitle: 'Cobranza, pagos y tecnolog\u00EDa para organizaciones de alta volumetr\u00EDa',
     heroLead: 'Somos una sociedad argentina especializada en soluciones de punta a punta: plataforma multisistemas, locales a la calle, pasarelas de pago con checkout para e-commerce y equipos expertos. Trazabilidad, seguridad y cumplimiento normativo en cada operaci\u00F3n.',
@@ -152,6 +153,7 @@ const I18N = {
     navServicios: 'Services',
     navSectores: 'Sectors',
     navCumpl: 'Compliance',
+    navTerminos: 'Terms & Conditions',
     navContacto: 'Contact',
     heroTitle: 'Collections, payments, and technology for high\u2011volume organizations',
     heroLead: 'We are an Argentine company specialized in end\u2011to\u2011end solutions: multi\u2011system platform, storefront locations, payment gateways with checkout, and expert teams. Traceability, security, and regulatory compliance in every operation.',
@@ -207,6 +209,7 @@ const I18N = {
     navServicios: 'Servi\u00E7os',
     navSectores: 'Setores',
     navCumpl: 'Conformidade',
+    navTerminos: 'Termos e condições',
     navContacto: 'Contato',
     heroTitle: 'Cobran\u00E7a, pagamentos e tecnologia para organiza\u00E7\u00F5es de alto volume',
     heroLead: 'Somos uma empresa argentina especializada em solu\u00E7\u00F5es ponta\u2011a\u2011ponta: plataforma multisistemas, lojas f\u00EDsicas, gateways de pagamento com checkout e equipes especialistas. Rastreabilidade, seguran\u00E7a e conformidade regulat\u00F3ria em cada opera\u00E7\u00E3o.',
@@ -397,12 +400,13 @@ function applyI18n() {
             if (labelMap[dl]) a.textContent = labelMap[dl];
           });
           // Also translate section links inside dropdown by href (no IDs needed)
-          const byHref = [
-            ['#desarrollo', 'navDesarrollo'],
+      const byHref = [
+        ['#desarrollo', 'navDesarrollo'],
         ['#valor', 'navValor'],
         ['#servicios', 'navServicios'],
         ['#sectores', 'navSectores'],
         ['#cumplimiento', 'navCumpl'],
+        ['#terminos', 'navTerminos'],
         ['#contacto', 'navContacto']
       ];
       byHref.forEach(([href, key]) => {
@@ -493,3 +497,14 @@ document.querySelectorAll('.lang-select').forEach(a => {
 });
 
 applyI18n();
+
+// Lock page scroll when Terms screen is open
+(function(){
+  function updateTermsState(){
+    const open = (window.location.hash === '#terminos');
+    document.documentElement.classList.toggle('terms-open', open);
+    document.body.classList.toggle('terms-open', open);
+  }
+  window.addEventListener('hashchange', updateTermsState);
+  updateTermsState();
+})();
