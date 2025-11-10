@@ -5,11 +5,30 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 // Send form via mailto (no backend)
 const form = document.getElementById('formContacto');
 if (form) {
+  const tc = document.getElementById('aceptoTerminos');
+  // Mensaje de validación personalizado para el checkbox (también en mobile)
+  if (tc) {
+    const getTermsMsg = () => {
+      const lang = localStorage.getItem('lang') || 'es';
+      const t = I18N[lang] || I18N.es;
+      return t.checkTermsMsg || 'Marque esta casilla si desea continuar.';
+    };
+    tc.addEventListener('invalid', (e) => {
+      tc.setCustomValidity(getTermsMsg());
+      tc.classList.add('is-invalid');
+    });
+    tc.addEventListener('change', () => { tc.setCustomValidity(''); tc.classList.remove('is-invalid'); });
+  }
   form.addEventListener('submit', (e) => {
     // Validación nativa (incluye checkbox de términos requerido)
     if (!form.checkValidity()) {
       e.preventDefault();
       form.classList.add('was-validated');
+      if (tc && !tc.checked) {
+        tc.classList.add('is-invalid');
+        try { tc.focus({ preventScroll: true }); } catch(_) { tc.focus(); }
+        tc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
     e.preventDefault();
@@ -107,6 +126,7 @@ const I18N = {
     navContacto: 'Contacto',
     termsTitle: 'Términos y condiciones',
     termsClose: 'Cerrar y volver',
+    checkTermsMsg: 'Marque esta casilla si desea continuar.',
     heroTitle: 'Cobranza, pagos y tecnolog\u00EDa para organizaciones de alta volumetr\u00EDa',
     heroLead: 'Somos una sociedad argentina especializada en soluciones de punta a punta: plataforma multisistemas, locales a la calle, pasarelas de pago con checkout para e-commerce y equipos expertos. Trazabilidad, seguridad y cumplimiento normativo en cada operaci\u00F3n.',
     stat1Title: 'Cobranza omnicanal',
@@ -165,6 +185,7 @@ const I18N = {
     navContacto: 'Contact',
     termsTitle: 'Terms & Conditions',
     termsClose: 'Close and return',
+    checkTermsMsg: 'Please check this box to continue.',
     heroTitle: 'Collections, payments, and technology for high\u2011volume organizations',
     heroLead: 'We are an Argentine company specialized in end\u2011to\u2011end solutions: multi\u2011system platform, storefront locations, payment gateways with checkout, and expert teams. Traceability, security, and regulatory compliance in every operation.',
     stat1Title: 'Omnichannel collections',
@@ -223,6 +244,7 @@ const I18N = {
     navContacto: 'Contato',
     termsTitle: 'Termos e condições',
     termsClose: 'Fechar e voltar',
+    checkTermsMsg: 'Marque esta caixa para continuar.',
     heroTitle: 'Cobran\u00E7a, pagamentos e tecnologia para organiza\u00E7\u00F5es de alto volume',
     heroLead: 'Somos uma empresa argentina especializada em solu\u00E7\u00F5es ponta\u2011a\u2011ponta: plataforma multisistemas, lojas f\u00EDsicas, gateways de pagamento com checkout e equipes especialistas. Rastreabilidade, seguran\u00E7a e conformidade regulat\u00F3ria em cada opera\u00E7\u00E3o.',
     stat1Title: 'Cobran\u00E7a omnichannel',
