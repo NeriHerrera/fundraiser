@@ -384,6 +384,7 @@ function applyI18n() {
     ['nav-item-servicios', 'navServicios'],
     ['nav-item-sectores', 'navSectores'],
     ['nav-item-cumplimiento', 'navCumpl'],
+    ['nav-item-terminos', 'navTerminos'],
     ['nav-item-contacto', 'navContacto']
   ];
   mapping.forEach(([id, key]) => { if ($(id) && t[key]) $(id).textContent = t[key]; });
@@ -406,7 +407,7 @@ function applyI18n() {
         ['#servicios', 'navServicios'],
         ['#sectores', 'navSectores'],
         ['#cumplimiento', 'navCumpl'],
-        ['#terminos', 'navTerminos'],
+        ['/terminos.html', 'navTerminos'],
         ['#contacto', 'navContacto']
       ];
       byHref.forEach(([href, key]) => {
@@ -497,14 +498,3 @@ document.querySelectorAll('.lang-select').forEach(a => {
 });
 
 applyI18n();
-
-// Lock page scroll when Terms screen is open
-(function(){
-  function updateTermsState(){
-    const open = (window.location.hash === '#terminos');
-    document.documentElement.classList.toggle('terms-open', open);
-    document.body.classList.toggle('terms-open', open);
-  }
-  window.addEventListener('hashchange', updateTermsState);
-  updateTermsState();
-})();
