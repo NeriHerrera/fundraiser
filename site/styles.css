@@ -353,10 +353,8 @@ a.link-body-emphasis { color: #f9fafb !important; }
           mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M13.485 1.929 6 9.414 2.515 5.929l-1.414 1.414L6 12.243l9.9-9.9-1.414-1.414z"/></svg>') center/14px 14px no-repeat;
 }
 
-/* Mostrar mensaje de error para checkbox en validación */
-.was-validated .tc-check:invalid ~ .invalid-feedback,
-.tc-check.is-invalid ~ .invalid-feedback { display: block !important; }
-.form-check .invalid-feedback { margin-left: .25rem; }
+/* Ocultar mensaje de ayuda inline; solo usar tooltip nativo del navegador */
+.form-check .invalid-feedback { display: none !important; }
 
 /* Overlay de términos para index */
 #terminos.terms-screen {
