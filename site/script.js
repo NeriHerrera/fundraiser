@@ -123,6 +123,7 @@ const I18N = {
     navSectores: 'Sectores',
     navCumpl: 'Cumplimiento',
     navTerminos: 'Términos y condiciones',
+    navAdvertencia: 'Advertencia',
     navContacto: 'Contacto',
     termsTitle: 'Términos y condiciones',
     termsClose: 'Cerrar y volver',
@@ -182,6 +183,7 @@ const I18N = {
     navSectores: 'Sectors',
     navCumpl: 'Compliance',
     navTerminos: 'Terms & Conditions',
+    navAdvertencia: 'Warning',
     navContacto: 'Contact',
     termsTitle: 'Terms & Conditions',
     termsClose: 'Close and return',
@@ -241,6 +243,7 @@ const I18N = {
     navSectores: 'Setores',
     navCumpl: 'Conformidade',
     navTerminos: 'Termos e condições',
+    navAdvertencia: 'Advertência',
     navContacto: 'Contato',
     termsTitle: 'Termos e condições',
     termsClose: 'Fechar e voltar',
@@ -419,6 +422,7 @@ function applyI18n() {
     ['nav-item-sectores', 'navSectores'],
     ['nav-item-cumplimiento', 'navCumpl'],
     ['nav-item-terminos', 'navTerminos'],
+    ['nav-item-advertencia', 'navAdvertencia'],
     ['nav-item-contacto', 'navContacto']
   ];
   mapping.forEach(([id, key]) => { if ($(id) && t[key]) $(id).textContent = t[key]; });
@@ -442,6 +446,7 @@ function applyI18n() {
         ['#sectores', 'navSectores'],
         ['#cumplimiento', 'navCumpl'],
         ['/terminos.html', 'navTerminos'],
+        ['/advertencia.html', 'navAdvertencia'],
         ['#contacto', 'navContacto']
       ];
       byHref.forEach(([href, key]) => {
