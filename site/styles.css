@@ -49,6 +49,10 @@ body {
   color: inherit; /* blanco */
   line-height: 1;
 }
+/* Info link next to phone */
+.nav-info { display: inline-flex; align-items: center; color: #fff; height: 40px; }
+.nav-info:hover { color: #fff; opacity: .9; }
+.nav-info .nav-info-icon { width: 1.5em; height: 1.5em; fill: currentColor; display: inline-block; }
 
 /* Navbar alignment: center elements on Y axis */
 .navbar { align-items: center; }
@@ -66,15 +70,19 @@ body {
 .nav-contact { font-size: .8rem; height: 40px; white-space: nowrap; color: #fff; }
 .nav-contact .nav-phone-icon { width: 1em; height: 1em; fill: currentColor; }
 .nav-contact .nav-phone-number { font-size: 1em; color: inherit; }
+.nav-info { font-size: .8rem; color: #fff; }
+.nav-info .nav-info-icon { width: 1em; height: 1em; }
 
 /* Unificar tamaño entre Secciones, Idioma y Teléfono tomando Secciones como referencia */
 .navbar { --nav-item-size: 1rem; }
 .navbar .nav-link { font-size: var(--nav-item-size); }
 .navbar .nav-contact { font-size: var(--nav-item-size); }
+.navbar .nav-info { font-size: var(--nav-item-size); }
 
 /* En XS mantener mismo tamaño que Secciones (sin reducir) */
 @media (max-width: 575.98px) {
   .nav-contact { font-size: var(--nav-item-size); gap: .375rem; }
+  .nav-info { font-size: var(--nav-item-size); }
 }
 
 /* Evitar salto de línea entre brand, teléfono y toggler en mobile */
