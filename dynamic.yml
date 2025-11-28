@@ -9,3 +9,52 @@ tcp:
       loadBalancer:
         servers:
           - address: "postgres:5432"
+
+http:
+  middlewares:
+    redirect-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    default-sec-headers:
+      headers:
+        stsSeconds: 31536000
+        stsIncludeSubdomains: true
+        stsPreload: true
+        frameDeny: true
+        contentTypeNosniff: true
+        referrerPolicy: no-referrer
+
+    gzip-compress:
+      compress: {}
+
+    cors-headers:
+      headers:
+        accessControlAllowOriginList:
+          - "https://cashmsystem.com.ar"
+          - "https://www.cashmsystem.com.ar"
+          - "https://fundraiser.com.ar"
+          - "https://www.fundraiser.com.ar"
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "OPTIONS"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "Authorization"
+          - "X-Requested-With"
+          - "Accept"
+          - "Origin"
+          - "Idempotency-Key"
+          - "X-API-TOKEN"
+          - "x-locale"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 86400
+
+tls:
+  options:
+    default:
+      minVersion: VersionTLS12

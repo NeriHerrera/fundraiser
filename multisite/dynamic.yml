@@ -66,9 +66,3 @@ tls:
   options:
     default:
       minVersion: VersionTLS12
-
-  certificates:
-    - certFile: /certs/cashmsystem/cashmsystem.com.ar.crt
-      keyFile: /certs/cashmsystem/cashmsystem.com.ar.key
-    - certFile: /certs/fundraiser/fundraiser.com.ar.crt
-      keyFile: /certs/fundraiser/fundraiser.com.ar.key
