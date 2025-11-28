@@ -1,35 +1,29 @@
 services:
   traefik:
     image: traefik:v3.1
-    container_name: traefik
+    container_name: traefik_proxy
     command:
-      - --providers.file.filename=/dynamic.yml
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
-      - --entrypoints.db.address=:5433
+      - --providers.file.filename=/etc/traefik/dynamic.yml
+      - --providers.file.watch=true
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --api.dashboard=true
-      - --certificatesresolvers.${CERT_RESOLVER}.acme.httpchallenge=true
-      - --certificatesresolvers.${CERT_RESOLVER}.acme.httpchallenge.entrypoint=web
-      - --certificatesresolvers.${CERT_RESOLVER}.acme.email=${ACME_EMAIL}
-      - --certificatesresolvers.${CERT_RESOLVER}.acme.storage=/letsencrypt/acme.json
     ports:
       - "80:80"
       - "443:443"
-      - "5433:5433"
     volumes:
-      - ./dynamic.yml:/dynamic.yml:ro
-      - ./letsencrypt:/letsencrypt
+      - ./dynamic.yml:/etc/traefik/dynamic.yml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      # Local certificates mounted into the paths referenced by dynamic.yml
+      - ./certs/cashmsystem:/certs/cashmsystem:ro
+      - ./certs/fundraiser:/certs/fundraiser:ro
     networks:
-      - apps
       - traefik
     restart: unless-stopped
 
 networks:
-  apps:
-    external: true
   traefik:
     external: true
-    name: ${TRAEFIK_NETWORK}
+    name: ${TRAEFIK_NETWORK:-traefik_proxy}

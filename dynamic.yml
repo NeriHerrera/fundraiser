@@ -1,15 +1,3 @@
-tcp:
-  routers:
-    postgres-tcp:
-      entryPoints: ["db"]
-      rule: 'HostSNI("*")'
-      service: postgres-svc
-  services:
-    postgres-svc:
-      loadBalancer:
-        servers:
-          - address: "postgres:5432"
-
 http:
   middlewares:
     redirect-https:
@@ -54,7 +42,33 @@ http:
         accessControlAllowCredentials: true
         accessControlMaxAge: 86400
 
+  routers:
+    http-catchall:
+      rule: "HostRegexp(`{any:.+}`)"
+      entryPoints: [ "web" ]
+      middlewares: [ "redirect-https" ]
+      service: noop
+
+    traefik-dashboard:
+      entryPoints: [ "websecure" ]
+      rule: Host(`proxy.tu-dominio.com`)
+      service: api@internal
+      middlewares: [ "default-sec-headers" ]
+      tls: {}
+
+  services:
+    noop:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1"
+
 tls:
   options:
     default:
       minVersion: VersionTLS12
+
+  certificates:
+    - certFile: /certs/cashmsystem/cashmsystem.com.ar.crt
+      keyFile: /certs/cashmsystem/cashmsystem.com.ar.key
+    - certFile: /certs/fundraiser/fundraiser.com.ar.crt
+      keyFile: /certs/fundraiser/fundraiser.com.ar.key

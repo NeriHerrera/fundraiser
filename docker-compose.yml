@@ -1,26 +1,35 @@
 services:
   fundraiser-web:
-    image: ${PROJECT_NAME}-web:latest
+    image: fundraiser-web:latest
     build:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=${TRAEFIK_NETWORK:-traefik_proxy}"
-      - "traefik.http.services.${PROJECT_NAME}.loadbalancer.server.port=80"
-      - "traefik.http.routers.${PROJECT_NAME}.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
-      - "traefik.http.routers.${PROJECT_NAME}.entrypoints=${ENTRYPOINT_WEBSECURE:-websecure}"
-      - "traefik.http.routers.${PROJECT_NAME}.tls=true"
-      - "traefik.http.routers.${PROJECT_NAME}.tls.options=default@file"
-      - "traefik.http.routers.${PROJECT_NAME}.middlewares=default-sec-headers@file,gzip-compress@file,cors-headers@file"
-      - "traefik.http.routers.${PROJECT_NAME}-http.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
-      - "traefik.http.routers.${PROJECT_NAME}-http.entrypoints=${ENTRYPOINT_WEB:-web}"
-      - "traefik.http.routers.${PROJECT_NAME}-http.middlewares=redirect-https@file"
+
+      - "traefik.docker.network=traefik_proxy"
+
+      # SERVICE
+      - "traefik.http.services.fundraiser.loadbalancer.server.port=80"
+
+      # HTTPS ROUTER
+      - "traefik.http.routers.fundraiser.rule=Host(`fundraiser.com.ar`) || Host(`www.fundraiser.com.ar`)"
+      - "traefik.http.routers.fundraiser.entrypoints=websecure"
+      - "traefik.http.routers.fundraiser.tls=true"
+      - "traefik.http.routers.fundraiser.tls.options=default@file"
+      - "traefik.http.routers.fundraiser.middlewares=default-sec-headers@file,gzip-compress@file,cors-headers@file"
+
+      # HTTP ROUTER → redirect
+      - "traefik.http.routers.fundraiser-http.rule=Host(`fundraiser.com.ar`) || Host(`www.fundraiser.com.ar`)"
+      - "traefik.http.routers.fundraiser-http.entrypoints=web"
+      - "traefik.http.routers.fundraiser-http.middlewares=redirect-https@file"
+
     networks:
       - traefik
 
 networks:
   traefik:
     external: true
-    name: ${TRAEFIK_NETWORK:-traefik_proxy}
+    name: traefik_proxy
+
