@@ -1,0 +1,74 @@
+http:
+  middlewares:
+    redirect-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    default-sec-headers:
+      headers:
+        stsSeconds: 31536000
+        stsIncludeSubdomains: true
+        stsPreload: true
+        frameDeny: true
+        contentTypeNosniff: true
+        referrerPolicy: no-referrer
+
+    gzip-compress:
+      compress: {}
+
+    cors-headers:
+      headers:
+        accessControlAllowOriginList:
+          - "https://cashmsystem.com.ar"
+          - "https://www.cashmsystem.com.ar"
+          - "https://fundraiser.com.ar"
+          - "https://www.fundraiser.com.ar"
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "OPTIONS"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "Authorization"
+          - "X-Requested-With"
+          - "Accept"
+          - "Origin"
+          - "Idempotency-Key"
+          - "X-API-TOKEN"
+          - "x-locale"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 86400
+
+  routers:
+    http-catchall:
+      rule: "HostRegexp(`{any:.+}`)"
+      entryPoints: [ "web" ]
+      middlewares: [ "redirect-https" ]
+      service: noop
+
+    traefik-dashboard:
+      entryPoints: [ "websecure" ]
+      rule: Host(`proxy.tu-dominio.com`)
+      service: api@internal
+      middlewares: [ "default-sec-headers" ]
+      tls: {}
+
+  services:
+    noop:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1"
+
+tls:
+  options:
+    default:
+      minVersion: VersionTLS12
+
+  certificates:
+    - certFile: /certs/cashmsystem/cashmsystem.com.ar.crt
+      keyFile: /certs/cashmsystem/cashmsystem.com.ar.key
+    - certFile: /certs/fundraiser/fundraiser.com.ar.crt
+      keyFile: /certs/fundraiser/fundraiser.com.ar.key
