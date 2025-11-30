@@ -7,7 +7,6 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-
       - "traefik.docker.network=traefik_proxy"
 
       # SERVICE
@@ -17,7 +16,8 @@ services:
       - "traefik.http.routers.fundraiser.rule=Host(\"fundraiser.com.ar\") || Host(\"www.fundraiser.com.ar\")"
       - "traefik.http.routers.fundraiser.entrypoints=websecure"
       - "traefik.http.routers.fundraiser.tls=true"
-      - "traefik.http.routers.fundraiser.tls.options=default@file"
+      # OJO: quitamos esta línea para evitar el error:
+      # - "traefik.http.routers.fundraiser.tls.options=default@file"
       - "traefik.http.routers.fundraiser.middlewares=default-sec-headers@file,gzip-compress@file,cors-headers@file"
 
       # HTTP ROUTER → redirect a HTTPS
