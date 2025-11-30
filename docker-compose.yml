@@ -14,14 +14,14 @@ services:
       - "traefik.http.services.fundraiser.loadbalancer.server.port=80"
 
       # HTTPS ROUTER
-      - "traefik.http.routers.fundraiser.rule=Host(`fundraiser.com.ar`) || Host(`www.fundraiser.com.ar`)"
+      - "traefik.http.routers.fundraiser.rule=Host(\"fundraiser.com.ar\") || Host(\"www.fundraiser.com.ar\")"
       - "traefik.http.routers.fundraiser.entrypoints=websecure"
       - "traefik.http.routers.fundraiser.tls=true"
       - "traefik.http.routers.fundraiser.tls.options=default@file"
       - "traefik.http.routers.fundraiser.middlewares=default-sec-headers@file,gzip-compress@file,cors-headers@file"
 
-      # HTTP ROUTER → redirect
-      - "traefik.http.routers.fundraiser-http.rule=Host(`fundraiser.com.ar`) || Host(`www.fundraiser.com.ar`)"
+      # HTTP ROUTER → redirect a HTTPS
+      - "traefik.http.routers.fundraiser-http.rule=Host(\"fundraiser.com.ar\") || Host(\"www.fundraiser.com.ar\")"
       - "traefik.http.routers.fundraiser-http.entrypoints=web"
       - "traefik.http.routers.fundraiser-http.middlewares=redirect-https@file"
 
@@ -32,4 +32,3 @@ networks:
   traefik:
     external: true
     name: traefik_proxy
-
